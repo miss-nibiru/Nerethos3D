@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a6dd0a26e194c43ac96f59323fdb1c, type: 3}
+  m_Name: StrongholdLegend_Main
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Code.Gameplay.Level.StrongholdLegend
+  _entries:
+  - _symbol: O
+    _prefab: {fileID: 3765141370881888817, guid: 45d703917723c419aafc3460c164aff7, type: 3}
+    _walkable: 1
+  - _symbol: W
+    _prefab: {fileID: 3739189342820633884, guid: 75b189b06a76a42279ccdc9691e78098, type: 3}
+    _walkable: 0
+  - _symbol: ' '
+    _prefab: {fileID: 201128442934845337, guid: 93a0dfd3817b146f2b31f49511f6c092, type: 3}
+    _walkable: 1
+  - _symbol: =
+    _prefab: {fileID: 520915334420922207, guid: 85339c5343d414236b664d117a3cd093, type: 3}
+    _walkable: 1
+  - _symbol: L
+    _prefab: {fileID: 3312245674853122135, guid: 93d6d8cde9be14a85b4c5dd6cd8e49f1, type: 3}
+    _walkable: 1
+  - _symbol: H
+    _prefab: {fileID: 8608495833239328120, guid: f575be02576444c339bd3d8daab29d3e, type: 3}
+    _walkable: 1
+  - _symbol: '#'
+    _prefab: {fileID: 5291664611030260654, guid: 3ae30a51259d044768d7dc2b057cfc0b, type: 3}
+    _walkable: 1
