@@ -104,12 +104,3 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
-
-# Unity project inside Nerethos_3D folder
-Nerethos_3D/Library/
-Nerethos_3D/Temp/
-Nerethos_3D/Obj/
-Nerethos_3D/Build/
-Nerethos_3D/Builds/
-Nerethos_3D/Logs/
-Nerethos_3D/UserSettings/
