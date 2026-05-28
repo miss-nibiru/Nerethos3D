@@ -12,25 +12,147 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a6dd0a26e194c43ac96f59323fdb1c, type: 3}
   m_Name: StrongholdLegend_Main
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Code.Gameplay.Level.StrongholdLegend
-  _entries:
-  - _symbol: O
+  _floorEntries:
+  - _symbol: F
+    _prefab: {fileID: 201128442934845337, guid: 93a0dfd3817b146f2b31f49511f6c092, type: 3}
+    _walkable: 1
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: R
+    _prefab: {fileID: 2625031094309509340, guid: fcae7408cae904094861fedcd65625e3, type: 3}
+    _walkable: 1
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: B
+    _prefab: {fileID: 3685153860163111851, guid: 33564ae12a00a4af79446e3a414734de, type: 3}
+    _walkable: 1
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: K
+    _prefab: {fileID: 5291664611030260654, guid: 3ae30a51259d044768d7dc2b057cfc0b, type: 3}
+    _walkable: 1
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: .
     _prefab: {fileID: 3765141370881888817, guid: 45d703917723c419aafc3460c164aff7, type: 3}
     _walkable: 1
+    _rotation: {x: 0, y: 0, z: 0}
+  _wallEntries:
   - _symbol: W
     _prefab: {fileID: 3739189342820633884, guid: 75b189b06a76a42279ccdc9691e78098, type: 3}
     _walkable: 0
-  - _symbol: ' '
-    _prefab: {fileID: 201128442934845337, guid: 93a0dfd3817b146f2b31f49511f6c092, type: 3}
-    _walkable: 1
-  - _symbol: =
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: E
+    _prefab: {fileID: 3739189342820633884, guid: 75b189b06a76a42279ccdc9691e78098, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 90, z: 0}
+  - _symbol: S
+    _prefab: {fileID: 3739189342820633884, guid: 75b189b06a76a42279ccdc9691e78098, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 180, z: 0}
+  - _symbol: N
+    _prefab: {fileID: 3739189342820633884, guid: 75b189b06a76a42279ccdc9691e78098, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 270, z: 0}
+  - _symbol: 1
     _prefab: {fileID: 520915334420922207, guid: 85339c5343d414236b664d117a3cd093, type: 3}
-    _walkable: 1
-  - _symbol: L
-    _prefab: {fileID: 3312245674853122135, guid: 93d6d8cde9be14a85b4c5dd6cd8e49f1, type: 3}
-    _walkable: 1
+    _walkable: 0
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: 2
+    _prefab: {fileID: 520915334420922207, guid: 85339c5343d414236b664d117a3cd093, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 90, z: 0}
+  - _symbol: 3
+    _prefab: {fileID: 520915334420922207, guid: 85339c5343d414236b664d117a3cd093, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 180, z: 0}
+  - _symbol: 4
+    _prefab: {fileID: 520915334420922207, guid: 85339c5343d414236b664d117a3cd093, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 270, z: 0}
+  - _symbol: D
+    _prefab: {fileID: 8608495833239328120, guid: f575be02576444c339bd3d8daab29d3e, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: A
+    _prefab: {fileID: 8608495833239328120, guid: f575be02576444c339bd3d8daab29d3e, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 90, z: 0}
   - _symbol: H
     _prefab: {fileID: 8608495833239328120, guid: f575be02576444c339bd3d8daab29d3e, type: 3}
-    _walkable: 1
-  - _symbol: '#'
-    _prefab: {fileID: 5291664611030260654, guid: 3ae30a51259d044768d7dc2b057cfc0b, type: 3}
-    _walkable: 1
+    _walkable: 0
+    _rotation: {x: 0, y: 180, z: 0}
+  - _symbol: J
+    _prefab: {fileID: 8608495833239328120, guid: f575be02576444c339bd3d8daab29d3e, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 270, z: 0}
+  - _symbol: X
+    _prefab: {fileID: 3312245674853122135, guid: 93d6d8cde9be14a85b4c5dd6cd8e49f1, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: Y
+    _prefab: {fileID: 3312245674853122135, guid: 93d6d8cde9be14a85b4c5dd6cd8e49f1, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 90, z: 0}
+  - _symbol: Z
+    _prefab: {fileID: 3312245674853122135, guid: 93d6d8cde9be14a85b4c5dd6cd8e49f1, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 180, z: 0}
+  - _symbol: V
+    _prefab: {fileID: 3312245674853122135, guid: 93d6d8cde9be14a85b4c5dd6cd8e49f1, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 270, z: 0}
+  _miscEntries:
+  - _symbol: I
+    _prefab: {fileID: 6773979100034413933, guid: 12aec7a9f09f64a348f32d02f6cbb649, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: T
+    _prefab: {fileID: 4222499031894615221, guid: 33f7a75136bff409f87ce1b5e81e4b9a, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: U
+    _prefab: {fileID: 4222499031894615221, guid: 33f7a75136bff409f87ce1b5e81e4b9a, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 90, z: 0}
+  - _symbol: M
+    _prefab: {fileID: 4222499031894615221, guid: 33f7a75136bff409f87ce1b5e81e4b9a, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 180, z: 0}
+  - _symbol: Q
+    _prefab: {fileID: 4222499031894615221, guid: 33f7a75136bff409f87ce1b5e81e4b9a, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 270, z: 0}
+  - _symbol: L
+    _prefab: {fileID: 2683397558379464847, guid: d74f069bb82044dea865e862a4143aa3, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: '!'
+    _prefab: {fileID: 2683397558379464847, guid: d74f069bb82044dea865e862a4143aa3, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 90, z: 0}
+  _pipeEntries:
+  - _symbol: P
+    _prefab: {fileID: 2339830190201656390, guid: dce7057b910cb433dbade70f1c671108, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: p
+    _prefab: {fileID: 2339830190201656390, guid: dce7057b910cb433dbade70f1c671108, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 90, z: 0}
+  - _symbol: 9
+    _prefab: {fileID: 2716130419327486869, guid: 3e7ad62cdf170495abfc14845668f564, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 0, z: 0}
+  - _symbol: 8
+    _prefab: {fileID: 2716130419327486869, guid: 3e7ad62cdf170495abfc14845668f564, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 90, z: 0}
+  - _symbol: 7
+    _prefab: {fileID: 2716130419327486869, guid: 3e7ad62cdf170495abfc14845668f564, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 180, z: 0}
+  - _symbol: 6
+    _prefab: {fileID: 2716130419327486869, guid: 3e7ad62cdf170495abfc14845668f564, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 270, z: 0}
+  - _symbol: 5
+    _prefab: {fileID: 3540988256243543285, guid: 6c6c9f11d284b4e82bafa0a2e3daeeaa, type: 3}
+    _walkable: 0
+    _rotation: {x: 0, y: 0, z: 0}

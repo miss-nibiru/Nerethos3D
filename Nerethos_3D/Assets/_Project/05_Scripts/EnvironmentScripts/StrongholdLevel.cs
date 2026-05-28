@@ -3,6 +3,7 @@ using UnityEngine;
 namespace _Project.Code.Gameplay.Level
 {
     // Reads a LevelData asset (text maze + legend), builds the walkable grid, and spawns the tiles.
+    //All references to quaternion identity have been deleted to allow for rotation
     public class StrongholdLevel : MonoBehaviour
     {
         [SerializeField] private StrongholdData _levelData;
@@ -62,10 +63,11 @@ namespace _Project.Code.Gameplay.Level
                     //     PlayerSpawn = new Vector2Int(x, y);
                     // }
 
-                    if (legend.TryGetPrefab(symbol, out GameObject prefab))
+                    if (legend.TryGetPrefabFromList(symbol, out GameObject prefab, out Vector3 rotation))
                     {
                         Vector2Int cell = new Vector2Int(x, y);
-                        GameObject spawned = Instantiate(prefab, GridToWorld(cell), Quaternion.identity, transform);
+                        Quaternion prefabRotation = Quaternion.Euler(rotation); // euler is to describe the orientation of a 3d object in the inspector, but we need to convert it to a quaternion to use it in the world
+                        GameObject spawned = Instantiate(prefab, GridToWorld(cell), prefabRotation, transform);
 
                         // if (symbol == LevelLegend.Collectable)
                         // {

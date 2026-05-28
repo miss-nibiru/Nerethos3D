@@ -13,11 +13,5 @@ MonoBehaviour:
   m_Name: StrongholdData_Floor
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Code.Gameplay.Level.StrongholdData
   _levelName: OutdoorsFloor
-  _layout: 'WLLWWWWWLLW
-
-
-
-
-
-    WWWWWWWWWW'
+  _layout: 
   _legend: {fileID: 11400000, guid: 9233da17cbf6740ef8e3deec6b65505d, type: 2}
