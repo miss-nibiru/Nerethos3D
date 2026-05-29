@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3232406852979583235}
   - component: {fileID: 6588205489942216228}
   - component: {fileID: 5613285815707416571}
+  - component: {fileID: 7139201256232360407}
   m_Layer: 0
   m_Name: mainhall_floor_staircase
   m_TagString: Untagged
@@ -90,3 +91,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8674023909444582995}
   m_Mesh: {fileID: 7344413199129372077, guid: bfbefbefd95d54da1a89ce08a9ef88d1, type: 3}
+--- !u!65 &7139201256232360407
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674023909444582995}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 19.627417, y: 3.030002, z: 26.73724}
+  m_Center: {x: -8.813703, y: -1.2350013, z: 18.63137}

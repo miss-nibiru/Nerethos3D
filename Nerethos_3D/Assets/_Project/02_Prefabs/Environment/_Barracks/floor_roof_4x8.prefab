@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4800703726931596006}
   - component: {fileID: 7029996153098969383}
   - component: {fileID: 812436088990369853}
+  - component: {fileID: -2221086121878495769}
   m_Layer: 0
   m_Name: floor_roof_4x8
   m_TagString: Untagged
@@ -90,3 +91,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9080539935582664178}
   m_Mesh: {fileID: 668656287137701322, guid: c78ab509f418d431ca57b49211b32e88, type: 3}
+--- !u!65 &-2221086121878495769
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080539935582664178}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.000001, y: 0.24999996, z: 4.0037107}
+  m_Center: {x: -4.0000005, y: -0.12499998, z: 2.0018554}

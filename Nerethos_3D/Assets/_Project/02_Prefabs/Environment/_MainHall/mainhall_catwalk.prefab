@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3070420549732902367}
   - component: {fileID: 3725243600646222682}
   - component: {fileID: 476585769543969898}
+  - component: {fileID: -3708104465450730411}
   m_Layer: 0
   m_Name: mainhall_catwalk
   m_TagString: Untagged
@@ -90,3 +91,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2764800817243681662}
   m_Mesh: {fileID: 5426471148518114895, guid: 9fcb03cde535c41b4b4d1910a4c52a72, type: 3}
+--- !u!65 &-3708104465450730411
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764800817243681662}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 22.573776, y: 0.59999996, z: 16.019257}
+  m_Center: {x: -11.277071, y: -0.4387683, z: 23.848858}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1374753365192503905}
   - component: {fileID: 4642488248247475639}
   - component: {fileID: 5568608226950727966}
+  - component: {fileID: 5457561998244759782}
   m_Layer: 0
   m_Name: floor_indoor_4x4
   m_TagString: Untagged
@@ -90,3 +91,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771554834990814979}
   m_Mesh: {fileID: -2842106103666191004, guid: 1663eed797d4149c1a6fd514a6b0c5aa, type: 3}
+--- !u!65 &5457561998244759782
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771554834990814979}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 0.24999999, z: 3.9999998}
+  m_Center: {x: -2, y: -0.11895985, z: 1.9999908}

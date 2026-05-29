@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4159772760273639227}
   - component: {fileID: 7453313795731220089}
   - component: {fileID: 7239466352147062}
+  - component: {fileID: -1995063022659099442}
   m_Layer: 0
   m_Name: floor_tiled
   m_TagString: Untagged
@@ -90,3 +91,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700491446508926490}
   m_Mesh: {fileID: -3212982684928056585, guid: 8f44f762038644da89577b4eec0425dd, type: 3}
+--- !u!65 &-1995063022659099442
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700491446508926490}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.994435, y: 0.5000001, z: 4.9971385}
+  m_Center: {x: -2.9972174, y: -0.21250373, z: 2.4985693}
