@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3121959446260138039}
   - component: {fileID: 6965842161671719827}
   - component: {fileID: 2841211755943619755}
+  - component: {fileID: -1531391690538014675}
   m_Layer: 0
   m_Name: floor_stone
   m_TagString: Untagged
@@ -90,3 +91,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7911429263579668162}
   m_Mesh: {fileID: -3729812506745380254, guid: 1e7af53b5421f462a9748ee95bf41e59, type: 3}
+--- !u!65 &-1531391690538014675
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7911429263579668162}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.0000024, y: 0.5073017, z: 4.000005}
+  m_Center: {x: -1.9999988, y: -0.24634916, z: 2.0000024}
