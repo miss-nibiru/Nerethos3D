@@ -19,7 +19,7 @@ public class BattleInputManager : MonoBehaviour
     [SerializeField] private BattleManager battleManager; // reference to battle manager to send pattern to it
     
     
-    private List<string> _currentPattern = new List<string>(); // create a list of patterns to store in memory
+    private List<WeaponAttackData.InputActionType> _currentPattern = new List<WeaponAttackData.InputActionType>(); // create a list of patterns to store in memory
     
 
     private void Awake()
@@ -80,7 +80,8 @@ public class BattleInputManager : MonoBehaviour
     {
         Debug.Log("Submitted Pattern: " + string.Join(" + ", _currentPattern));
         
-        List<string> submittedPattern = new List<string>(_currentPattern); // creates a copy of the list to send to battle manager to avoid mess ups later
+        List<WeaponAttackData.InputActionType> submittedPattern = 
+            new List<WeaponAttackData.InputActionType>(_currentPattern); // creates a copy of the list to send to battle manager to avoid mess ups later
         battleManager.ReceivedPattern(submittedPattern);
         
         _currentPattern.Clear();
@@ -92,45 +93,45 @@ public class BattleInputManager : MonoBehaviour
     
      private Action<InputAction.CallbackContext> OnRightPressed()
     {
-        return ctx => AddInput("Right");
+        return ctx => AddInput(WeaponAttackData.InputActionType.Right);
     }
      
     private Action<InputAction.CallbackContext> OnLeftPressed()
     {
-        return ctx => AddInput("Left");
+        return ctx => AddInput(WeaponAttackData.InputActionType.Left);
     }
 
     private Action<InputAction.CallbackContext> OnDownPressed()
     {
-        return ctx => AddInput("Down");
+        return ctx => AddInput(WeaponAttackData.InputActionType.Down);
     }
 
     private Action<InputAction.CallbackContext> OnUpPressed()
     {
-        return ctx => AddInput("Up");
+        return ctx => AddInput(WeaponAttackData.InputActionType.Up);
     }
 
     private Action<InputAction.CallbackContext> OnAPressed()
     {
-        return ctx => AddInput("A");
+        return ctx => AddInput(WeaponAttackData.InputActionType.A);
     }
 
     private Action<InputAction.CallbackContext> OnSPressed()
     {
-        return ctx => AddInput("S");
+        return ctx => AddInput(WeaponAttackData.InputActionType.S);
     }
 
     private Action<InputAction.CallbackContext> OnZPressed()
     {
-        return ctx => AddInput("Z");
+        return ctx => AddInput(WeaponAttackData.InputActionType.Z);
     }
 
     private Action<InputAction.CallbackContext> OnXPressed()
     {
-        return ctx => AddInput("X");
+        return ctx => AddInput(WeaponAttackData.InputActionType.X);
     }
   
-    public void AddInput(string inputName)
+    public void AddInput(WeaponAttackData.InputActionType inputName)
     {
         int maxPatternLength = battleManager.GetCurrentPatternLength();
 

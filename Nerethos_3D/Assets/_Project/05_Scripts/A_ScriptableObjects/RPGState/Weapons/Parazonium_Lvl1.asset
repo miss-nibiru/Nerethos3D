@@ -15,3 +15,6 @@ MonoBehaviour:
   weaponName: Starter Parazonium
   weaponLevel: 1
   maxPatternLength: 5
+  basicAttackPattern: {fileID: 11400000, guid: 5223ffa25c2f84b41ad41519fe85906f, type: 2}
+  attackActions:
+  - {fileID: 11400000, guid: e57e6fca764ff43c5b84112e53e29ee0, type: 2}
