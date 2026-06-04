@@ -15,7 +15,7 @@ public class WeaponData : ScriptableObject
     
     
     [SerializeField] private WeaponAttackData basicAttackPattern; // this will be used when the player does not match any attack pattern 
-    [SerializeField] private List<WeaponAttackData> attackActions; // this will be used to know what attacks are available to player with this weapon - this will be used by battle manager to know what attacks are available to player
+    [SerializeField] private List<WeaponAttackData> actions; // this will be used to know what attacks are available to player with this weapon - this will be used by battle manager to know what attacks are available to player
     
     public string WeaponName => weaponName;
     public int WeaponLevel => weaponLevel;
@@ -30,7 +30,7 @@ public class WeaponData : ScriptableObject
         // if there is a match, return the attack data for that attack
         // if there is no match, return default attack
 
-        foreach (var attack in attackActions)
+        foreach (var attack in actions)
         {
             if (DoPatternsMatch(submittedPattern, attack.InputPatterns))
             {

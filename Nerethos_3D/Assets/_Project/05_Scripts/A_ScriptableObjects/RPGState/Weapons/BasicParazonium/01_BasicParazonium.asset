@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50900f7339334763853eb8639708265, type: 3}
+  m_Name: 01_BasicParazonium
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  weaponName: Starter Parazonium
+  weaponLevel: 1
+  maxPatternLength: 5
+  basicAttackPattern: {fileID: 11400000, guid: 5223ffa25c2f84b41ad41519fe85906f, type: 2}
+  actions:
+  - {fileID: 11400000, guid: 5223ffa25c2f84b41ad41519fe85906f, type: 2}
+  - {fileID: 11400000, guid: fd8db8e3fd369419daa60a463e3f4df3, type: 2}
+  - {fileID: 11400000, guid: c3cfa9fc511c14afe900462f466bd596, type: 2}
+  - {fileID: 11400000, guid: d5e9ab1bcd8104007a39da3d1f53f517, type: 2}
+  - {fileID: 11400000, guid: e57e6fca764ff43c5b84112e53e29ee0, type: 2}
+  - {fileID: 11400000, guid: 003905248027249cbb071dfb43d174b5, type: 2}
+  - {fileID: 11400000, guid: 81aef45fb76734272b35aaaf4642f2c6, type: 2}
+  - {fileID: 11400000, guid: 30fee236c29b343ed97381651802de20, type: 2}
+  - {fileID: 11400000, guid: 3d3f0a96ba79649ebb054722e4a8498a, type: 2}
+  - {fileID: 11400000, guid: e0ee6ba34a88f4ea3b32ae96e39ca23b, type: 2}
+  - {fileID: 11400000, guid: 44ff4176cfde149a099cb375b3fc218e, type: 2}
+  - {fileID: 11400000, guid: 78d1fd40cd1194fc68bd730c616189f4, type: 2}
