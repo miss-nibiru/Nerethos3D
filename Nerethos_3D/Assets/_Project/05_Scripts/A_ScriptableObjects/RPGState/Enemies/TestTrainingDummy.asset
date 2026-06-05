@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31046b52f04d749fca095b5e5a06ce10, type: 3}
   m_Name: TestTrainingDummy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  targetPoints:
+  - {fileID: 11400000, guid: fcd08b68ed9d24883821e5e76ce4f894, type: 2}
+  - {fileID: 11400000, guid: df9fc6f2a977e428ca77f0ba7b0a1aeb, type: 2}
+  - {fileID: 11400000, guid: e1bac9b932ba747bbbd7a5d421b9ebd8, type: 2}
   enemyName: Training Dummy
-  enemyMaxHealth: 5
+  enemyMaxHealth: 15000
   enemyAttackPower: 0
   enemyDefensePower: 0
   enemySpeed: 10

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -21,6 +22,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int enemyCurrentHealth;
     [SerializeField] private EnemyData enemyData;
     
+    private List<EnemyTargetPointsSpawner> _pointsSpawned = new List<EnemyTargetPointsSpawner>();
+    private int _selectPointIndex; // 0 head, 1 torso, 2 legs
+    
+    public EnemyTargetPointsSpawner SelectedTargetPoint => _pointsSpawned[_selectPointIndex];
     public bool IsDead => _isDead;
     
     private void Start()
@@ -42,6 +47,40 @@ public class EnemyController : MonoBehaviour
         
         Debug.Log("All stats initialized: " + gameObject.name + " Health: " + enemyCurrentHealth + " Attack: " + _enemyAttackPower + " Defense: " + _enemyDefensePower + " Speed: " + _enemySpeed);
         
+        _pointsSpawned.Clear();
+        
+        foreach (EnemyTargetPointData pointData in enemyData.TargetPoints)
+        {
+            
+            EnemyTargetPointsSpawner newPoint = new EnemyTargetPointsSpawner(pointData);
+            _pointsSpawned.Add(newPoint);
+            
+            Debug.Log(gameObject.name + " spawned points: " + _pointsSpawned.Count);
+            
+        }
+        
+        SelectPoint(0);
+        
+    }
+
+    public void SelectPoint(int direction)
+    {
+        
+        //the target index changes - the enemy detects where can it be attacked adn what are its weak spots
+        
+        _selectPointIndex += direction;
+        
+        if (_selectPointIndex < 0)
+        {
+            _selectPointIndex = _pointsSpawned.Count - 1;
+        }
+        
+        else if (_selectPointIndex >= _pointsSpawned.Count)
+        {
+            _selectPointIndex = 0;
+        }
+        
+        Debug.Log("Selected target point: " + SelectedTargetPoint.PointData.TargetPointName);
         
     }
 
