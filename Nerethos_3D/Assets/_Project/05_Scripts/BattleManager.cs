@@ -22,6 +22,13 @@ public class BattleManager : MonoBehaviour
     public void ReceivedPattern(List<WeaponAttackData.InputActionType> submittedPattern)
     {
         WeaponData currentWeapon = playerTurnController.CurrentWeapon;
+
+        if (_battleIsOver)
+        {
+            Debug.Log("Battle is already over!");
+            return;
+        }
+        
         WeaponAttackData resolvedAction = currentWeapon.ResolveAction(submittedPattern);
 
         Debug.Log("Resolved Attack: " + resolvedAction.AttackName + " Damage: " + resolvedAction.BaseDamage);

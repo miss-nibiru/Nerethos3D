@@ -798,7 +798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleManager
   playerTurnController: {fileID: 1581221050}
-  enemyController: {fileID: 0}
+  enemyController: {fileID: 1712212231}
 --- !u!1 &230901990
 GameObject:
   m_ObjectHideFlags: 0
@@ -4620,13 +4620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e856638166a47009d2cbfdbbaa40a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  enemyAttackPower: 0
-  enemyDefensePower: 0
-  enemySpeed: 0
-  enemyCurrentHealth: 0
-  canTakeDamage: 0
-  isDead: 0
-  enemyData: {fileID: 0}
+  enemyCurrentHealth: 20
+  enemyData: {fileID: 11400000, guid: 24c3f7fe97f4d4a22acec28684164e50, type: 2}
 --- !u!1 &1745213601
 GameObject:
   m_ObjectHideFlags: 0

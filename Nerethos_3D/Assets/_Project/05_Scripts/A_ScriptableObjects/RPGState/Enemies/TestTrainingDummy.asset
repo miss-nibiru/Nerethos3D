@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestTrainingDummy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: Training Dummy
-  enemyMaxHealth: 10000
+  enemyMaxHealth: 5
   enemyAttackPower: 0
   enemyDefensePower: 0
   enemySpeed: 10

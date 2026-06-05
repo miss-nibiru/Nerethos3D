@@ -2,7 +2,16 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    /// <summary>
+    /// Enemy has multiple target points.
+    /// Each target point can be destroyed.
+    /// Destroyed points can affect rewards / drops / battle options later.
+    /// Weakspot is not necessarily instant-kill.
+    /// Weakspot gives better drop chance if destroyed.
+    /// </summary>
+    
     //All stats that change during battle have to be here from enemy data
+    
     private int _enemyAttackPower;
     private int _enemyDefensePower;
     private int _enemySpeed;

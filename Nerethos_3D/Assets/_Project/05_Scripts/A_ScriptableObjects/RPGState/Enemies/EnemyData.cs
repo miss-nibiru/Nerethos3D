@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -8,6 +9,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyData", menuName = "Scriptable Objects/EnemyData")]
 public class EnemyData : ScriptableObject
 {
+    
+    [SerializeField] private List<EnemyTargetPointData> targetPoints; // reference to each point on the enemy to select and attack
+    
     [SerializeField] private string enemyName;
     [SerializeField] private int enemyMaxHealth;
     [SerializeField] private int enemyAttackPower;
@@ -19,6 +23,8 @@ public class EnemyData : ScriptableObject
     public int EnemyAttackPower => enemyAttackPower;
     public int EnemyDefensePower => enemyDefensePower;
     public int EnemySpeed => enemySpeed;
+    
+    public List<EnemyTargetPointData> TargetPoints => targetPoints;
     
     
     
