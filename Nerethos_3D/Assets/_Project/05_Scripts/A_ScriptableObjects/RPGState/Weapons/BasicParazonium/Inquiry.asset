@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
   attackName: Inquiry
   inputPatterns: 0100000005000000
+  actionType: 1
   baseDamage: 0

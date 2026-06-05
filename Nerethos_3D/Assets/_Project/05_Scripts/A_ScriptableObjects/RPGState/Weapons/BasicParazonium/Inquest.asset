@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
   attackName: Inquest
   inputPatterns: 0100000006000000
+  actionType: 1
   baseDamage: 0

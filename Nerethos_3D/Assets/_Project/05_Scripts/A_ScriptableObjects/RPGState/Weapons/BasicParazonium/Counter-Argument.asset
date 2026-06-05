@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
   attackName: Counter-Argument
   inputPatterns: 0200000006000000
+  actionType: 1
   baseDamage: 0

@@ -17,11 +17,21 @@ public class WeaponAttackData : ScriptableObject
         
     }
     
+    public enum WeaponActionType
+    {
+        Offensive,
+        Defensive,
+        Overdrive
+    }
+    
     [SerializeField] private string attackName;
     [SerializeField] private List<InputActionType> inputPatterns;
+    [SerializeField] private WeaponActionType actionType;
+    
     [SerializeField] private int baseDamage;
     
     public string AttackName => attackName;
     public List<InputActionType> InputPatterns => inputPatterns;
+    public WeaponActionType ActionType => actionType;
     public int BaseDamage => baseDamage;
 }

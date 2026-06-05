@@ -6,6 +6,8 @@ using UnityEngine;
 /// Holds weapon information. Holds the list of attacks available to the weapon and the max pattern length allowed for the weapon. This will be used by battle manager to know what attacks are available to player
 /// and how long the pattern can be for each weapon
 /// </summary>
+
+
 [CreateAssetMenu(fileName = "WeaponData", menuName = "Scriptable Objects/WeaponData")]
 public class WeaponData : ScriptableObject
 {
@@ -24,7 +26,7 @@ public class WeaponData : ScriptableObject
     
     //does this weapon have an attack that matches the players input pattern?
     
-    public WeaponAttackData ResolveAttack(List<WeaponAttackData.InputActionType> submittedPattern)
+    public WeaponAttackData ResolveAction(List<WeaponAttackData.InputActionType> submittedPattern)
     {
         // compare the submitted pattern with the list of attack patterns available to the weapon
         // if there is a match, return the attack data for that attack

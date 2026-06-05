@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
   attackName: Submitted Evidence
   inputPatterns: 010000000300000005000000
+  actionType: 1
   baseDamage: 0
