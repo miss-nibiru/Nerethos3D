@@ -22,10 +22,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int enemyCurrentHealth;
     [SerializeField] private EnemyData enemyData;
     
-    private List<EnemyTargetPointsSpawner> _pointsSpawned = new List<EnemyTargetPointsSpawner>();
+    private List<EnemyTargetPointInstance> _pointsSpawned = new List<EnemyTargetPointInstance>();
     private int _selectPointIndex; // 0 head, 1 torso, 2 legs
     
-    public EnemyTargetPointsSpawner SelectedTargetPoint => _pointsSpawned[_selectPointIndex];
+    public EnemyTargetPointInstance SelectedTargetPoint => _pointsSpawned[_selectPointIndex];
     public bool IsDead => _isDead;
     
     private void Start()
@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour
         foreach (EnemyTargetPointData pointData in enemyData.TargetPoints)
         {
             
-            EnemyTargetPointsSpawner newPoint = new EnemyTargetPointsSpawner(pointData);
+            EnemyTargetPointInstance newPoint = new EnemyTargetPointInstance(pointData);
             _pointsSpawned.Add(newPoint);
             
             Debug.Log(gameObject.name + " spawned points: " + _pointsSpawned.Count);
@@ -80,36 +80,87 @@ public class EnemyController : MonoBehaviour
             _selectPointIndex = 0;
         }
         
-        Debug.Log("Selected target point: " + SelectedTargetPoint.PointData.TargetPointName);
+        Debug.Log("Selected target point: " + SelectedTargetPoint.pointData.TargetPointName);
         
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamageOnPoint(int damageAmount)
     {
+        //check target point selected
+        // damage that target point, also reduce enemy main hp bar
+        // announce what point was hit and check if it was a weak spot
+        // check if the enemy died
+        
         if (!_canTakeDamage || _isDead)
         {
             return;
-        }  
+        }
         
+        if (SelectedTargetPoint == null)
+        {
+            Debug.LogError("No target point selected for " + gameObject.name);
+            return;
+        }
+        
+        string targetPointName = SelectedTargetPoint.pointData.TargetPointName; // for debug purposes
+        
+        SelectedTargetPoint.TakeDamage(damageAmount);
         enemyCurrentHealth -= damageAmount;
-        Debug.Log(gameObject.name + " has been damaged! current health: " + enemyCurrentHealth);
         
         if (enemyCurrentHealth <= 0)
         {
-            
             enemyCurrentHealth = 0;
             _isDead = true;
             _canTakeDamage = false;
             
             Debug.Log(gameObject.name + " has been defeated!");
-
+            
             //DeadAnimation();
             
         }
         
-        Debug.Log(gameObject.name + " took " + damageAmount + " damage! Current health: " + enemyCurrentHealth);
+        if (SelectedTargetPoint.isDestroyed)
+        {
+            Debug.Log(gameObject.name + " has destroyed target point: " + targetPointName);
+        }
+
+        else
+        {
+            Debug.Log(gameObject.name + " took " + damageAmount + " damage on " + targetPointName + "! Current health: " + enemyCurrentHealth);
+        }
+        
+        
+        Debug.Log(gameObject.name + " main health: " + enemyCurrentHealth);
+        
         
     }
+
+    // public void TakeGlobalDamage(int damageAmount) ---- BRING BACK WHEN WORKING ON STATUS EFFECTS AND THINGS THAT AFFECT THE ENTIRE ENEMY, NOT JUST ONE TARGET POINT
+    // {
+    //     if (!_canTakeDamage || _isDead)
+    //     {
+    //         return;
+    //     }  
+    //     
+    //     enemyCurrentHealth -= damageAmount;
+    //     Debug.Log(gameObject.name + " has been damaged! current health: " + enemyCurrentHealth);
+    //     
+    //     if (enemyCurrentHealth <= 0)
+    //     {
+    //         
+    //         enemyCurrentHealth = 0;
+    //         _isDead = true;
+    //         _canTakeDamage = false;
+    //         
+    //         Debug.Log(gameObject.name + " has been defeated!");
+    //
+    //         //DeadAnimation();
+    //         
+    //     }
+    //     
+    //     Debug.Log(gameObject.name + " took " + damageAmount + " damage! Current health: " + enemyCurrentHealth);
+    //     
+    // }
 
     //During battle the enemy can also get status effects added to them that can affect attack, defense and speed (stunning shuts spped to 0)
 

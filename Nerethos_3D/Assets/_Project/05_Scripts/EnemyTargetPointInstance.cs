@@ -1,5 +1,5 @@
 
-public class EnemyTargetPointsSpawner 
+public class EnemyTargetPointInstance 
 
 {
     
@@ -7,12 +7,12 @@ public class EnemyTargetPointsSpawner
     private int _currentHealth;
     private bool _isDestroyed;
     
-    public EnemyTargetPointData PointData => _pointData;
-    public int CurrentHealth => _currentHealth;
-    public bool IsDestroyed => _isDestroyed;
+    public EnemyTargetPointData pointData => _pointData;
+    public int currentHealth => _currentHealth;
+    public bool isDestroyed => _isDestroyed;
     
     
-    public EnemyTargetPointsSpawner(EnemyTargetPointData pointData)
+    public EnemyTargetPointInstance(EnemyTargetPointData pointData)
     {
         _pointData = pointData;
         _currentHealth = pointData.Health;

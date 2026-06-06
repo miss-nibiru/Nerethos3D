@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Controls the entirety of the battle and the flow. Starts, player turn, check for patterns, apply attack results, enemy turn, check win/lose conditions
+/// Controls the entirety of the battle and the flow. Starts, player turn, check for patterns, apply attack results, enemy turn, check win/lose conditions, checks for damage dealt
 /// Battle result (death or capture)
 /// </summary>
 public class BattleManager : MonoBehaviour
@@ -12,7 +12,35 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private EnemyController enemyController;
 
     private bool _battleIsOver;
+    
+    private enum TurnActionType
+    {
+        //WeaponSelection,
+        ActionSelection,
+        PatternInput,
+        TurnResolution,
+        
+    }
 
+    private TurnActionType _turnActionType;
+    
+    
+    private void Start()
+    {
+        SetTurnActionType(TurnActionType.ActionSelection); // start the battle with the player selecting an action to perform
+        _battleIsOver = false;
+        
+        Debug.Log("Battle started! Player's turn. Select an action to perform.");
+        
+    }
+    
+    private void SetTurnActionType(TurnActionType newType)
+    {
+        _turnActionType = newType;
+        Debug.Log("Turn action type changed to: " + _turnActionType);
+    }
+    
+    
     
     public int GetCurrentPatternLength()
     {
@@ -36,8 +64,8 @@ public class BattleManager : MonoBehaviour
         
         if (resolvedAction.ActionType == WeaponAttackData.WeaponActionType.Offensive)
         {
-            enemyController.TakeDamage(resolvedAction.BaseDamage);
-            Debug.Log("Applying " + resolvedAction.BaseDamage + " damage to enemy!");
+            enemyController.TakeDamageOnPoint(resolvedAction.BaseDamage);
+            Debug.Log("Dealt " + resolvedAction.BaseDamage + " damage to target point!");
             
             
             if (enemyController.IsDead)
