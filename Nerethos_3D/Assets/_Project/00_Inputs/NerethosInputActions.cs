@@ -165,6 +165,15 @@ public partial class @NerethosInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""E Button"",
+                    ""type"": ""Button"",
+                    ""id"": ""248a42b7-3737-417d-af13-c8e309a07656"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Clear"",
                     ""type"": ""Button"",
                     ""id"": ""588f9da4-ce61-43d0-9f3d-7c21cf3cb22c"",
@@ -274,6 +283,17 @@ public partial class @NerethosInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""02194fca-7b46-49ff-80b8-9fcc8116cb77"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""E Button"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b3be06bc-9ebc-48ee-b69f-ab4fc4b5e622"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
@@ -309,6 +329,7 @@ public partial class @NerethosInputActions: IInputActionCollection2, IDisposable
         m_Battle_SButton = m_Battle.FindAction("S Button", throwIfNotFound: true);
         m_Battle_ZButton = m_Battle.FindAction("Z Button", throwIfNotFound: true);
         m_Battle_XButton = m_Battle.FindAction("X Button", throwIfNotFound: true);
+        m_Battle_EButton = m_Battle.FindAction("E Button", throwIfNotFound: true);
         m_Battle_Clear = m_Battle.FindAction("Clear", throwIfNotFound: true);
         m_Battle_Attack = m_Battle.FindAction("Attack", throwIfNotFound: true);
     }
@@ -399,6 +420,7 @@ public partial class @NerethosInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Battle_SButton;
     private readonly InputAction m_Battle_ZButton;
     private readonly InputAction m_Battle_XButton;
+    private readonly InputAction m_Battle_EButton;
     private readonly InputAction m_Battle_Clear;
     private readonly InputAction m_Battle_Attack;
     /// <summary>
@@ -444,6 +466,10 @@ public partial class @NerethosInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Battle/XButton".
         /// </summary>
         public InputAction @XButton => m_Wrapper.m_Battle_XButton;
+        /// <summary>
+        /// Provides access to the underlying input action "Battle/EButton".
+        /// </summary>
+        public InputAction @EButton => m_Wrapper.m_Battle_EButton;
         /// <summary>
         /// Provides access to the underlying input action "Battle/Clear".
         /// </summary>
@@ -502,6 +528,9 @@ public partial class @NerethosInputActions: IInputActionCollection2, IDisposable
             @XButton.started += instance.OnXButton;
             @XButton.performed += instance.OnXButton;
             @XButton.canceled += instance.OnXButton;
+            @EButton.started += instance.OnEButton;
+            @EButton.performed += instance.OnEButton;
+            @EButton.canceled += instance.OnEButton;
             @Clear.started += instance.OnClear;
             @Clear.performed += instance.OnClear;
             @Clear.canceled += instance.OnClear;
@@ -543,6 +572,9 @@ public partial class @NerethosInputActions: IInputActionCollection2, IDisposable
             @XButton.started -= instance.OnXButton;
             @XButton.performed -= instance.OnXButton;
             @XButton.canceled -= instance.OnXButton;
+            @EButton.started -= instance.OnEButton;
+            @EButton.performed -= instance.OnEButton;
+            @EButton.canceled -= instance.OnEButton;
             @Clear.started -= instance.OnClear;
             @Clear.performed -= instance.OnClear;
             @Clear.canceled -= instance.OnClear;
@@ -645,6 +677,13 @@ public partial class @NerethosInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnXButton(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "E Button" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEButton(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Clear" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

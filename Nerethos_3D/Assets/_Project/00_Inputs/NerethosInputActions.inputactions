@@ -79,6 +79,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "E Button",
+                    "type": "Button",
+                    "id": "248a42b7-3737-417d-af13-c8e309a07656",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Clear",
                     "type": "Button",
                     "id": "588f9da4-ce61-43d0-9f3d-7c21cf3cb22c",
@@ -183,6 +192,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "X Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02194fca-7b46-49ff-80b8-9fcc8116cb77",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "E Button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

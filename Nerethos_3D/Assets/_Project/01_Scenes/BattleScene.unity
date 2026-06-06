@@ -1137,6 +1137,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BattleInputManager
   currentPatternText: {fileID: 597209237}
   battleManager: {fileID: 196528567}
+  actionSelectionUI:
+  - {fileID: 1254497029}
+  - {fileID: 1871812457}
+  - {fileID: 1022439559}
+  - {fileID: 789773262}
+  actionTypes: 00000000020000000100000003000000
 --- !u!1 &322895941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,6 +2616,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BattleInputManager
   currentPatternText: {fileID: 597209237}
   battleManager: {fileID: 196528567}
+  actionSelectionUI: []
+  actionTypes: 
 --- !u!1 &1012201937
 GameObject:
   m_ObjectHideFlags: 0
