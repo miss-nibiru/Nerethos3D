@@ -21,6 +21,11 @@ public class PlayerPatternState : IBattleState
         
     }
     
+    public void ConfirmState()
+    {
+    
+    }
+    
     public void PerformState()
     {
        //working on it! player performs pattern here so we need to connect to input

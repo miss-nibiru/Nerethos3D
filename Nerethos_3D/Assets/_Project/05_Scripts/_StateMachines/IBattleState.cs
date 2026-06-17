@@ -7,9 +7,10 @@ using UnityEngine;
 public interface IBattleState
 {
 
-    public void EnterState();
-    public void PerformState();
-    public void ExitState();
+    void EnterState();
+    void PerformState();
+    void ExitState();
+    void ConfirmState();
 
 
 }

@@ -9,6 +9,7 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
+    [SerializeField] private BattleUIManager battleUIManager;
     [SerializeField] private StateMachine stateMachine;
     [SerializeField] private PlayerTurnController playerTurnController;
     [SerializeField] private EnemyController enemyController;
@@ -31,6 +32,9 @@ public class BattleManager : MonoBehaviour
     public StateMachine StateMachine => stateMachine;
     public PlayerTurnController PlayerTurnController => playerTurnController;
     public EnemyController EnemyController => enemyController;
+    public BattleUIManager BattleUIManager => battleUIManager;
+    
+    //STATES CONSTRUCTORS
     public PlayerActionSelectState PlayerActionSelectState => _playerActionSelectState;
     public PlayerTargetSelectState PlayerTargetSelectState => _playerTargetSelectState;
     public PlayerPatternState PlayerPatternState => _playerPatternState;
@@ -85,6 +89,13 @@ public class BattleManager : MonoBehaviour
         }
         stateMachine.ChangeState(newBattleState);
 
+    }
+
+    public void ConfirmBattleState() // makes sure the state is confirmed before moving forward
+    {
+        
+        stateMachine.CurrentState.ConfirmState();
+        
     }
     
     

@@ -199,7 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108185817}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,6 +833,7 @@ Transform:
   - {fileID: 196528566}
   - {fileID: 285758274}
   - {fileID: 594447964}
+  - {fileID: 922442988}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &238026928
@@ -1137,7 +1138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7488654e0b6654de8bf5b29361db942a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleInputManager
-  _playerStateMachine: {fileID: 0}
+  playerStateMachine: {fileID: 0}
   currentPatternText: {fileID: 597209237}
   battleManager: {fileID: 196528567}
   actionSelectionUI:
@@ -2488,6 +2489,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891428559}
   m_CullTransparentMesh: 1
+--- !u!1 &922442987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 922442988}
+  - component: {fileID: 922442989}
+  m_Layer: 0
+  m_Name: BattleUIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &922442988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922442987}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 230901991}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &922442989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922442987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4cb318ec6ecc43e6b3c951259bc750a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleUIManager
+  actionSelectionUI:
+  - {fileID: 1254497029}
+  - {fileID: 1871812457}
+  - {fileID: 1022439559}
+  - {fileID: 789773262}
+  actionType: 00000000020000000100000003000000
+  battleManager: {fileID: 196528567}
 --- !u!1 &948553697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,7 +2713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7488654e0b6654de8bf5b29361db942a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleInputManager
-  _playerStateMachine: {fileID: 0}
+  playerStateMachine: {fileID: 0}
   currentPatternText: {fileID: 597209237}
   battleManager: {fileID: 196528567}
   actionSelectionUI: []

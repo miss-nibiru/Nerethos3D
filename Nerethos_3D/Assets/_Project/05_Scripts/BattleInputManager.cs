@@ -23,7 +23,7 @@ public class BattleInputManager : MonoBehaviour
         
     }
     
-    public StateMachine _playerStateMachine;
+    public StateMachine playerStateMachine;
     
     private NerethosInputActions _inputActions; // store the input actions
 
@@ -51,8 +51,7 @@ public class BattleInputManager : MonoBehaviour
         UpdateActionUI();
 
         //IN-BATTLE INPUTS
-        _inputActions.Battle.Right.performed += OnRightPressed();
-        _inputActions.Battle.Left.performed += OnLeftPressed();
+       
         _inputActions.Battle.Down.performed += OnDownPressed();
         _inputActions.Battle.Up.performed += OnUpPressed();
 
@@ -60,8 +59,6 @@ public class BattleInputManager : MonoBehaviour
         _inputActions.Battle.SButton.performed += OnSPressed();
         _inputActions.Battle.ZButton.performed += OnZPressed();
         _inputActions.Battle.XButton.performed += OnXPressed();
-
-        _inputActions.Battle.EButton.performed += OnEPressed;
 
         //UI INPUTS - player needs access to ui at all times - remember to map this for controller!
 
@@ -71,8 +68,7 @@ public class BattleInputManager : MonoBehaviour
 
     private void OnDisable()
     {
-        _inputActions.Battle.Right.performed -= OnRightPressed();
-        _inputActions.Battle.Left.performed -= OnLeftPressed();
+        
         _inputActions.Battle.Up.performed -= OnUpPressed();
         _inputActions.Battle.Down.performed -= OnDownPressed();
         _inputActions.Battle.AButton.performed -= OnAPressed();
@@ -84,8 +80,6 @@ public class BattleInputManager : MonoBehaviour
         _inputActions.Battle.Attack.performed -= PerformAttack;
         
         //UI
-        
-        _inputActions.Battle.EButton.performed -= OnEPressed;
 
         _inputActions.Disable();
 

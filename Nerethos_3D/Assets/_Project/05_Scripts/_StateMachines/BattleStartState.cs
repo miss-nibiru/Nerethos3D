@@ -14,14 +14,20 @@ public class BattleStartState : IBattleState
     public void EnterState()
     {
         Debug.Log("Entering Battle start state, things loaded properly");
-        BattleManager.ChangeBattleState(BattleManager.PlayerActionSelectState);
+        _battleManager.ChangeBattleState(_battleManager.PlayerActionSelectState);
         
+    }
+    
+    public void ConfirmState()
+    {
+    
     }
     
     public void PerformState()
     {
        //
     }
+    
 
 
     public void ExitState()

@@ -14,11 +14,14 @@ public class PlayerActionSelectState : IBattleState
     
     public void EnterState()
     {
-        
         Debug.Log("Player now needs to choose an action");
-        //BattleManager.ChangeBattleState(BattleManager.PlayerTargetSelectState);
-        
-        
+    }
+    
+    public void ConfirmState()
+    {
+        Debug.Log("Confirmed, moving into target selection");
+        _battleManager.ChangeBattleState(_battleManager.PlayerTargetSelectState);
+    
     }
     
     public void PerformState()

@@ -20,6 +20,11 @@ public class PlayerAttackResolutionState : IBattleState
         
     }
     
+    public void ConfirmState()
+    {
+    
+    }
+    
     public void PerformState()
     {
        //working on it!
