@@ -798,6 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12a031c9de9d445db32dda4328275ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleManager
+  inputManager: {fileID: 285758275}
   battleUIManager: {fileID: 922442989}
   stateMachine: {fileID: 594447963}
   playerTurnController: {fileID: 322895943}
@@ -1139,7 +1140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7488654e0b6654de8bf5b29361db942a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleInputManager
-  playerStateMachine: {fileID: 0}
+  playerStateMachine: {fileID: 594447963}
   currentPatternText: {fileID: 597209237}
   battleManager: {fileID: 196528567}
   actionSelectionUI:

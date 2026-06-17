@@ -15,9 +15,8 @@ public class PlayerPatternState : IBattleState
     public void EnterState()
     {
         
-        Debug.Log("Entered pattern stage");
-        //BattleManager.ChangeBattleState(BattleManager.AttackResolutionState);
-
+        Debug.Log("Entered pattern stage"); 
+        _battleManager.BattleInputManager.EnablePatternInput(); //turn on the pattern enterer thingy
         
     }
     
@@ -36,11 +35,14 @@ public class PlayerPatternState : IBattleState
     {
         
         Debug.Log("Exited player target selection > going into pattern stage");
+        _battleManager.BattleInputManager.DisablePatternInput();
         
     }
     
     public void MoveState(int direction)
     {
+        
+        
     
     }
 
