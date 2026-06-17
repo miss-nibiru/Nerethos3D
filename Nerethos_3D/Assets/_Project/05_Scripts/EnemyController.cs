@@ -23,6 +23,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemyData enemyData;
     
     private List<EnemyTargetPointInstance> _pointsSpawned = new List<EnemyTargetPointInstance>();
+    private List<EnemyPointFeedback> _pointFeedbacks = new List<EnemyPointFeedback>();
+    
     private int _selectPointIndex; // 0 head, 1 torso, 2 legs
     
     public EnemyTargetPointInstance SelectedTargetPoint => _pointsSpawned[_selectPointIndex];
@@ -48,11 +50,19 @@ public class EnemyController : MonoBehaviour
         Debug.Log("All stats initialized: " + gameObject.name + " Health: " + enemyCurrentHealth + " Attack: " + _enemyAttackPower + " Defense: " + _enemyDefensePower + " Speed: " + _enemySpeed);
         
         _pointsSpawned.Clear();
+        _pointFeedbacks.Clear();
 
         foreach (EnemyData.EnemyTargetPointSetup pointSetup in enemyData.TargetPoints)
         {
             EnemyTargetPointInstance newPoint = new EnemyTargetPointInstance(pointSetup.TargetPointData);
             _pointsSpawned.Add(newPoint);
+
+            GameObject newPointVisual = Instantiate(pointSetup.NormalTargetVisual, transform); // instantiates and creates the position and scale of each point
+            newPointVisual.transform.localPosition = pointSetup.LocalPosition;
+            newPointVisual.transform.localScale = pointSetup.LocalScale;
+
+            EnemyPointFeedback pointFeedback = newPointVisual.GetComponent<EnemyPointFeedback>(); //Does whatever the feedback script is set to do
+            _pointFeedbacks.Add(pointFeedback);
         }
         
         SelectPoint(0);
@@ -61,20 +71,14 @@ public class EnemyController : MonoBehaviour
 
     public void SelectPoint(int direction)
     {
-        
         //the target index changes - the enemy detects where can it be attacked adn what are its weak spots
+        if (_pointFeedbacks.Count > 0) _pointFeedbacks[_selectPointIndex].SetBase();//set the base material for all targets
         
         _selectPointIndex += direction;
+        if (_selectPointIndex < 0) _selectPointIndex = _pointsSpawned.Count - 1;
+        else if (_selectPointIndex >= _pointsSpawned.Count) _selectPointIndex = 0;
         
-        if (_selectPointIndex < 0)
-        {
-            _selectPointIndex = _pointsSpawned.Count - 1;
-        }
-        
-        else if (_selectPointIndex >= _pointsSpawned.Count)
-        {
-            _selectPointIndex = 0;
-        }
+        if(_pointFeedbacks.Count > 0) _pointFeedbacks[_selectPointIndex].SetSelected();
         
         Debug.Log("Selected target point: " + SelectedTargetPoint.PointData.TargetPointName);
         
