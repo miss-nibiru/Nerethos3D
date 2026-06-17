@@ -11,6 +11,7 @@ public interface IBattleState
     void PerformState();
     void ExitState();
     void ConfirmState();
+    void MoveState(int direction);
 
 
 }

@@ -14,7 +14,11 @@ public class PlayerActionSelectState : IBattleState
     
     public void EnterState()
     {
+        
         Debug.Log("Player now needs to choose an action");
+        _battleManager.BattleUIManager.SetActionSelectionUIActive(true); // ui has to move around functionality too :<
+        
+        
     }
     
     public void ConfirmState()
@@ -23,6 +27,7 @@ public class PlayerActionSelectState : IBattleState
         _battleManager.ChangeBattleState(_battleManager.PlayerTargetSelectState);
     
     }
+    
     
     public void PerformState()
     {
@@ -34,7 +39,14 @@ public class PlayerActionSelectState : IBattleState
     {
         
         Debug.Log("Exited player action select");
+        _battleManager.BattleUIManager.SetActionSelectionUIActive(false);
         
+        
+    }
+    
+    public void MoveState(int direction)
+    {
+        _battleManager.BattleUIManager.MoveActionUI(direction);
     }
 
 }

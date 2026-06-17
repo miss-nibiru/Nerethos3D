@@ -8,8 +8,6 @@ using UnityEngine.InputSystem;
 /// <summary>
 ///  this script receives the players input in battle to know what button was pressed
 /// Stores the current button pressed and the pattern before attacking
-/// Updates the current pattern text game object
-/// It sends the finished pattern to battle manager script to continue battle
 /// </summary>
 
 public class BattleInputManager : MonoBehaviour

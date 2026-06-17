@@ -9,6 +9,7 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
+    [SerializeField] private BattleInputManager inputManager;
     [SerializeField] private BattleUIManager battleUIManager;
     [SerializeField] private StateMachine stateMachine;
     [SerializeField] private PlayerTurnController playerTurnController;
@@ -33,6 +34,7 @@ public class BattleManager : MonoBehaviour
     public PlayerTurnController PlayerTurnController => playerTurnController;
     public EnemyController EnemyController => enemyController;
     public BattleUIManager BattleUIManager => battleUIManager;
+    public BattleInputManager BattleInputManager => inputManager;
     
     //STATES CONSTRUCTORS
     public PlayerActionSelectState PlayerActionSelectState => _playerActionSelectState;
@@ -91,17 +93,16 @@ public class BattleManager : MonoBehaviour
 
     }
 
-    public void ConfirmBattleState() // makes sure the state is confirmed before moving forward
+    public void ConfirmBattleState()
     {
-        
+        Debug.Log("Confirming current battle state: " + stateMachine.CurrentState.GetType().Name);
         stateMachine.CurrentState.ConfirmState();
-        
     }
-    
-    
-    
-    
-    
+
+    public void MoveBattleState(int direction)
+    {
+        stateMachine.CurrentState.MoveState(direction);
+    }
     
     /// <summary>
     /// ignoring everything below for now but no touchy so no breaky

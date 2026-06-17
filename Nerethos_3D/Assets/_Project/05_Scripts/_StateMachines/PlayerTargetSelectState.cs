@@ -16,13 +16,14 @@ public class PlayerTargetSelectState : IBattleState
     {
         
         Debug.Log("Choose the target you wanna plow");
-        _battleManager.ChangeBattleState(_battleManager.PlayerActionSelectState);
         
         
     }
     
     public void ConfirmState()
     {
+        Debug.Log("Target confirmed. Moving to pattern input.");
+        _battleManager.ChangeBattleState(_battleManager.PlayerPatternState);
     
     }
     
@@ -37,6 +38,13 @@ public class PlayerTargetSelectState : IBattleState
         
         Debug.Log("Exited player target selection > going into pattern stage");
         
+    }
+    
+    public void MoveState(int direction)
+    {
+        
+        _battleManager.EnemyController.SelectPoint(direction);
+    
     }
 
 }

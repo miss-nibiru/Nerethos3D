@@ -38,5 +38,10 @@ public class PlayerPatternState : IBattleState
         Debug.Log("Exited player target selection > going into pattern stage");
         
     }
+    
+    public void MoveState(int direction)
+    {
+    
+    }
 
 }

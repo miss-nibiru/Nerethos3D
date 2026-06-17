@@ -37,5 +37,10 @@ public class PlayerAttackResolutionState : IBattleState
         Debug.Log("Exited player attack resolution");
         
     }
+    
+    public void MoveState(int direction)
+    {
+    
+    }
 
 }

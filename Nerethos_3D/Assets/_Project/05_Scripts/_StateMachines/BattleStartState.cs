@@ -36,5 +36,10 @@ public class BattleStartState : IBattleState
         Debug.Log("Exiting Battle start state, things loaded properly type shit");
         
     }
+    
+    public void MoveState(int direction)
+    {
+    
+    }
 
 }

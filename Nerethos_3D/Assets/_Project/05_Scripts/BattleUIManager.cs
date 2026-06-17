@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// This one lsitens for navigation buttons and confirm ui
+/// </summary>
+
 public class BattleUIManager : MonoBehaviour
 {
     public enum ActionType
@@ -9,7 +13,6 @@ public class BattleUIManager : MonoBehaviour
         Override,
         Item,
         Escape
-        
     }
 
     [SerializeField] private GameObject[] actionSelectionUI;
@@ -61,27 +64,17 @@ public class BattleUIManager : MonoBehaviour
 
     private void OnRightPressed(InputAction.CallbackContext ctx)
     {
-        
         //here we start dividing states i think
         
-        if (battleManager.CurrentTurnActionType == BattleManager.TurnActionType.ActionSelection)
-            MoveActionUI(1);
-        // if (battleManager.CurrentTurnActionType == BattleManager.TurnActionType.PatternInput)
-        //PatternInput();
+        battleManager.MoveBattleState(1);
+        
 
 
     }
 
     private void OnLeftPressed(InputAction.CallbackContext ctx)
     {
-        
-        
-        if (battleManager.CurrentTurnActionType == BattleManager.TurnActionType.ActionSelection)
-            MoveActionUI(-1);
-        //if (battleManager.CurrentTurnActionType == BattleManager.TurnActionType.PatternInput)
-            //somethingsomething
-            
-            
+        battleManager.MoveBattleState(-1);
     }
 
     private void UpdateActionUI()
@@ -100,7 +93,7 @@ public class BattleUIManager : MonoBehaviour
         }
     }
 
-    private void MoveActionUI(int direction)
+    public void MoveActionUI(int direction)
     {
 
         _selectedActionIndex += direction;
@@ -119,6 +112,14 @@ public class BattleUIManager : MonoBehaviour
         
         Debug.Log("Selected action index: " + _selectedActionIndex);
 
+    }
+
+    public void SetActionSelectionUIActive(bool isActive)
+    {
+        for (int i = 0; i < actionSelectionUI.Length; i++)
+        {
+            actionSelectionUI[i].SetActive(isActive);
+        }
     }
 
 }
