@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fdb2181f9e54d99b26754f7aaa5d93, type: 3}
   m_Name: TrainingDummy_Legs
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTargetPointData
-  isMainPoint: 0
   targetPointName: TrainingDummy_Legs
-  targetMaxHealth: 2000
-  isWeakPoint: 0
-  dropPercentage: 0
+  targetPointLocation: 3
+  targetMaxHealth: 1000
+  damageMultiplier: 0
+  alchemyWeakness: 01000000
+  weakStatusEffect: 010000000400000006000000
+  resistStatusEffect: 00000000020000000300000007000000
+  canBeBroken: 0

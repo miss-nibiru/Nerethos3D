@@ -9,6 +9,25 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyData", menuName = "Scriptable Objects/EnemyData")]
 public class EnemyData : ScriptableObject
 {
+    
+    //Okay learning a new thing... 
+    [System.Serializable] // this is to pack up a bundle of data that can be modified independently I think. Kinda like a prefab?
+    public class EnemyTargetPointSetup
+    {
+        [SerializeField] private EnemyTargetPointData targetPointData;
+        [SerializeField] private GameObject normalTargetVisual;
+        [SerializeField] private GameObject weakTargetVisual;
+        [SerializeField] private Vector3 localPosition;
+        [SerializeField] private Vector3 localScale;
+        
+        public EnemyTargetPointData TargetPointData => targetPointData;
+        public GameObject NormalTargetVisual => normalTargetVisual;
+        public GameObject WeakTargetVisual => weakTargetVisual;
+        public Vector3 LocalPosition => localPosition;
+        public Vector3 LocalScale => localScale;
+        
+    }
+    
     public enum EnemyType
     
     {
@@ -20,8 +39,7 @@ public class EnemyData : ScriptableObject
     }
     
     [SerializeField] private EnemyType enemyType;
-    
-    [SerializeField] private List<EnemyTargetPointData> targetPoints; // reference to each point on the enemy to select and attack
+    [SerializeField] private List<EnemyTargetPointSetup> targetPoints;
     
     [SerializeField] private string enemyName;
     [SerializeField] private int enemyMaxHealth;
@@ -30,6 +48,7 @@ public class EnemyData : ScriptableObject
     [SerializeField] private int enemySpeed;
     
     public string EnemyName => enemyName;
+    public List<EnemyTargetPointSetup> TargetPoints => targetPoints;
     public int EnemyMaxHealth => enemyMaxHealth;
     public int EnemyAttackPower => enemyAttackPower;
     public int EnemyDefensePower => enemyDefensePower;
@@ -37,8 +56,6 @@ public class EnemyData : ScriptableObject
     
     public EnemyType EnemyTypeValue => enemyType;
     
-    public List<EnemyTargetPointData> TargetPoints => targetPoints;
-
     private void OnValidate()
     {
         if (targetPoints == null)

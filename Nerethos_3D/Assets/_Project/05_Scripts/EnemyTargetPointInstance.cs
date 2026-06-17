@@ -7,7 +7,7 @@ public class EnemyTargetPointInstance
     private int _currentHealth;
     private bool _isDestroyed;
     
-    public EnemyTargetPointData pointData => _pointData;
+    public EnemyTargetPointData PointData => _pointData;
     public int currentHealth => _currentHealth;
     public bool isDestroyed => _isDestroyed;
     
@@ -15,7 +15,7 @@ public class EnemyTargetPointInstance
     public EnemyTargetPointInstance(EnemyTargetPointData pointData)
     {
         _pointData = pointData;
-        _currentHealth = pointData.Health;
+        _currentHealth = pointData.MaxHealth;
         _isDestroyed = false;
     }
     

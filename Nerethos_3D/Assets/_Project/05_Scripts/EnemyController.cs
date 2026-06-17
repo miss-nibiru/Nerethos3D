@@ -48,15 +48,11 @@ public class EnemyController : MonoBehaviour
         Debug.Log("All stats initialized: " + gameObject.name + " Health: " + enemyCurrentHealth + " Attack: " + _enemyAttackPower + " Defense: " + _enemyDefensePower + " Speed: " + _enemySpeed);
         
         _pointsSpawned.Clear();
-        
-        foreach (EnemyTargetPointData pointData in enemyData.TargetPoints)
+
+        foreach (EnemyData.EnemyTargetPointSetup pointSetup in enemyData.TargetPoints)
         {
-            
-            EnemyTargetPointInstance newPoint = new EnemyTargetPointInstance(pointData);
+            EnemyTargetPointInstance newPoint = new EnemyTargetPointInstance(pointSetup.TargetPointData);
             _pointsSpawned.Add(newPoint);
-            
-            Debug.Log(gameObject.name + " spawned points: " + _pointsSpawned.Count);
-            
         }
         
         SelectPoint(0);
@@ -80,7 +76,7 @@ public class EnemyController : MonoBehaviour
             _selectPointIndex = 0;
         }
         
-        Debug.Log("Selected target point: " + SelectedTargetPoint.pointData.TargetPointName);
+        Debug.Log("Selected target point: " + SelectedTargetPoint.PointData.TargetPointName);
         
     }
 
@@ -102,7 +98,7 @@ public class EnemyController : MonoBehaviour
             return;
         }
         
-        string targetPointName = SelectedTargetPoint.pointData.TargetPointName; // for debug purposes
+        string targetPointName = SelectedTargetPoint.PointData.TargetPointName; // for debug purposes
         
         SelectedTargetPoint.TakeDamage(damageAmount);
         enemyCurrentHealth -= damageAmount;
