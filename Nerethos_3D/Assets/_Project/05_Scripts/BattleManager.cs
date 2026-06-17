@@ -1,17 +1,42 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// Controls the entirety of the battle and the flow. Starts, player turn, check for patterns, apply attack results, enemy turn, check win/lose conditions, checks for damage dealt
-/// Battle result (death or capture)
+/// the entirety of the life of this script is changing, mutating, becoming a beacon of chonky management unlike how it is right now
+/// I am gonna swtich from switch cases heh to state machines
+/// wish me luck, im just typing this because starting is ha-
 /// </summary>
 
 public class BattleManager : MonoBehaviour
 {
+    [SerializeField] private StateMachine stateMachine;
     [SerializeField] private PlayerTurnController playerTurnController;
     [SerializeField] private EnemyController enemyController;
 
+    //1-BATTLE START
+    private BattleStartState _battleStartState;
+    
+    //2-ACTION SELECTION STATE
+    private PlayerActionSelectState _playerActionSelectState;
+    
+    //3-TARGET SELECTION STATE
+    private PlayerTargetSelectState _playerTargetSelectState;
+    
+    //4-PATTERN INPUT STATE
+    private PlayerPatternState _playerPatternState;
+    
+    //5-ATTACK RESOLUTION STATE
+    private PlayerAttackResolutionState _attackResolutionState;
+    
+    public StateMachine StateMachine => stateMachine;
+    public PlayerTurnController PlayerTurnController => playerTurnController;
+    public EnemyController EnemyController => enemyController;
+    public PlayerActionSelectState PlayerActionSelectState => _playerActionSelectState;
+    public PlayerTargetSelectState PlayerTargetSelectState => _playerTargetSelectState;
+    public PlayerPatternState PlayerPatternState => _playerPatternState;
+    public PlayerAttackResolutionState AttackResolutionState => _attackResolutionState;
+    
+    
     private bool _battleIsOver;
     
     public enum TurnActionType
@@ -29,15 +54,55 @@ public class BattleManager : MonoBehaviour
     private TurnActionType _turnActionType;
     
     public TurnActionType CurrentTurnActionType => _turnActionType; // This will be used to show the correct UI and to know how to handle the player's input when they submit a pattern.
-    
+
     private void Start()
     {
-        SetTurnActionType(TurnActionType.ActionSelection); // start the battle with the player selecting an action to perform
-        _battleIsOver = false;
+        _battleStartState = new BattleStartState();
+        _battleStartState.Initialize(this);
         
-        Debug.Log("Battle started! Player's turn. Select an action to perform.");
+        _playerActionSelectState = new PlayerActionSelectState();
+        _playerActionSelectState.Initialize(this);
         
+        _playerTargetSelectState = new PlayerTargetSelectState();
+        _playerTargetSelectState.Initialize(this);
+        
+        _playerPatternState = new PlayerPatternState();
+        _playerPatternState.Initialize(this);
+
+        _attackResolutionState = new PlayerAttackResolutionState();
+        _attackResolutionState.Initialize(this);
+        
+        ChangeBattleState(_battleStartState);
+
     }
+    
+    public void ChangeBattleState(IBattleState newBattleState)
+    {
+        if (!stateMachine)
+        {
+            Debug.LogError("The thing that manages everything is missing, dumbass");
+            return;
+        }
+        stateMachine.ChangeState(newBattleState);
+
+    }
+    
+    
+    
+    
+    
+    
+    /// <summary>
+    /// ignoring everything below for now but no touchy so no breaky
+    /// </summary>
+    // private void Start()
+    // {
+    //     SetTurnActionType(TurnActionType.ActionSelection); // start the battle with the player selecting an action to perform
+    //     _battleIsOver = false;
+    //     
+    //     Debug.Log("Battle started! Player's turn. Select an action to perform.");
+    //     
+    // }
     
     private void SetTurnActionType(TurnActionType newType)
     {
