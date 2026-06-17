@@ -3,15 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Camera")]
     [SerializeField] private Transform cameraTarget;
     [SerializeField] private float mouseSensitivity = 80f;
 
-    [Header("Movement")]
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private float rotationSpeed = 10f;
-
-    [Header("Jump")]
+    
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float groundCheckDistance = 1.1f;
 

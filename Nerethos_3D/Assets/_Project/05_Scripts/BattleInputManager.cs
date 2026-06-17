@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine.InputSystem;
 
 /// <summary>
@@ -21,6 +22,8 @@ public class BattleInputManager : MonoBehaviour
         Escape
         
     }
+    
+    public StateMachine _playerStateMachine;
     
     private NerethosInputActions _inputActions; // store the input actions
 
