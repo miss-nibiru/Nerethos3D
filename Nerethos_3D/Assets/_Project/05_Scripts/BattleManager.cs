@@ -42,24 +42,7 @@ public class BattleManager : MonoBehaviour
     public PlayerPatternState PlayerPatternState => _playerPatternState;
     public PlayerAttackResolutionState AttackResolutionState => _attackResolutionState;
     
-    
     private bool _battleIsOver;
-    
-    public enum TurnActionType
-    {
-        
-        //WeaponSelection,
-        ActionSelection,
-        PointSelection,
-        PatternInput,
-        TurnResolution,
-        EnemyTurn,
-        
-    }
-
-    private TurnActionType _turnActionType;
-    
-    public TurnActionType CurrentTurnActionType => _turnActionType; // This will be used to show the correct UI and to know how to handle the player's input when they submit a pattern.
 
     private void Start()
     {
@@ -115,107 +98,6 @@ public class BattleManager : MonoBehaviour
     //     Debug.Log("Battle started! Player's turn. Select an action to perform.");
     //     
     // }
-    
-    private void SetTurnActionType(TurnActionType newType)
-    {
-        _turnActionType = newType;
-        Debug.Log("Turn action type changed to: " + _turnActionType);
-    }
-    
-
-    public void StartPointSelection()
-    {
-        
-        if (_battleIsOver)
-        {
-            Debug.Log("Battle is already over, you can't start target selection again!");
-        }
-
-        if (_turnActionType != TurnActionType.ActionSelection)
-        {
-            Debug.Log("Cannot start target selection " + _turnActionType);
-            return;
-        }
-        
-        SetTurnActionType(TurnActionType.PointSelection);
-        Debug.Log("Target selection started");
-        
-        
-    }
-    
-    private bool CanSelectPoint()
-    {
-        
-        if (_battleIsOver)
-        {
-            Debug.Log("Battle is over. Cannot select point.");
-            return false;
-        }
-
-        if (_turnActionType != TurnActionType.PointSelection)
-        {
-            Debug.Log("Cannot select point selection, current turn action type is not PointSelection.");
-            return false;
-        }
-
-        return true;
-        
-    }
-    
-    public void SelectPoint(int direction)
-    {
-
-        if (!CanSelectPoint())
-        {
-            return;
-        }
-        
-        enemyController.SelectPoint(direction); // the enemy controller will handle the logic of changing the selected point and showing it to the player
-        Debug.Log("Point selected");
-        
-    }
-    
-    public void ConfirmPointSelection()
-    {
-        
-        Debug.Log("ConfirmPointSelection called. Current state is: " + _turnActionType);
-
-        if (!CanSelectPoint())
-        {
-            return;
-        }
-
-        SetTurnActionType(TurnActionType.PatternInput);
-        Debug.Log("Point selection confirmed!!!!!");
-        
-    }
-    
-    public void StartPatternInput()
-    {
-        if (_battleIsOver)
-        {
-            Debug.Log("Battle is already over, you can't start pattern input!");
-            return;
-        }
-        
-        if (_turnActionType != TurnActionType.ActionSelection)
-        {
-            Debug.Log("Cannot start pattern input, current turn action type is not ActionSelection.");
-            return;
-            
-        }
-
-        if (_turnActionType == TurnActionType.PointSelection)
-        {
-            Debug.Log("Cannot start pattern input, currently in PointSelection. Please confirm point selection first.");
-            return;
-        }
-        
-        SetTurnActionType(TurnActionType.PatternInput);
-        Debug.Log("Player is now inputting pattern for the selected action. Max pattern length: " + GetCurrentPatternLength());
-        
-    }
-    
     
     public int GetCurrentPatternLength()
     {
@@ -280,6 +162,5 @@ public class BattleManager : MonoBehaviour
         
     }
 
-    
     
 }

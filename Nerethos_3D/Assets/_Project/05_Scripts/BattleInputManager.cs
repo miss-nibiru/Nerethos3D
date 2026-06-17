@@ -23,11 +23,12 @@ public class BattleInputManager : MonoBehaviour
 
     private void Awake()
     {
-        _inputActions = new NerethosInputActions();
+        InitializeInputActions();
     }
 
     private void OnEnable()
     {
+        InitializeInputActions();
         _inputActions.Enable();
 
         //IN-BATTLE INPUTS
@@ -51,6 +52,8 @@ public class BattleInputManager : MonoBehaviour
 
     private void OnDisable()
     {
+        if (_inputActions == null) return;
+        
         _inputActions.Battle.Right.performed -= OnRightPressed;
         _inputActions.Battle.Left.performed -= OnLeftPressed;
         _inputActions.Battle.Up.performed -= OnUpPressed;
@@ -65,6 +68,11 @@ public class BattleInputManager : MonoBehaviour
 
         _inputActions.Disable();
 
+    }
+
+    private void InitializeInputActions()
+    {
+        _inputActions ??= new NerethosInputActions();
     }
     
     public void EnablePatternInput()

@@ -26,12 +26,14 @@ public class BattleUIManager : MonoBehaviour
 
     private void Awake()
     {
-        _inputActions = new NerethosInputActions();
+        InitializeInputActions();
     }
 
     private void OnEnable()
     {
+        InitializeInputActions();
         _inputActions.Enable();
+        
         _selectedActionIndex = 0; // to start on the first index always
         UpdateActionUI();
         
@@ -46,14 +48,21 @@ public class BattleUIManager : MonoBehaviour
 
     private void OnDisable()
     {
+        if  (_inputActions == null) return;
+        
         //BATTLE
         _inputActions.Battle.Right.performed -= OnRightPressed;
         _inputActions.Battle.Left.performed -= OnLeftPressed;
         
-        
         //UI
         _inputActions.Battle.EButton.performed -= OnConfirmPressed;
         _inputActions.Disable();
+    }
+    
+    
+    private void InitializeInputActions()
+    {
+        _inputActions ??= new NerethosInputActions();
     }
 
 
