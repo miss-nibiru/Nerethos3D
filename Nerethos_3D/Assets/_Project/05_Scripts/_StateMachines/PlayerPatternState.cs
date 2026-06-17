@@ -16,7 +16,7 @@ public class PlayerPatternState : IBattleState
     {
         
         Debug.Log("Entered pattern stage");
-        BattleManager.ChangeBattleState(BattleManager.AttackResolutionState);
+        //BattleManager.ChangeBattleState(BattleManager.AttackResolutionState);
 
         
     }

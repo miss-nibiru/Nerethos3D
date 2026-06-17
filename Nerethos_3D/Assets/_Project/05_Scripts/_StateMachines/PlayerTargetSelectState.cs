@@ -16,7 +16,7 @@ public class PlayerTargetSelectState : IBattleState
     {
         
         Debug.Log("Choose the target you wanna plow");
-        BattleManager.ChangeBattleState(BattleManager.PlayerActionSelectState);
+        //BattleManager.ChangeBattleState(BattleManager.PlayerActionSelectState);
         
         
     }

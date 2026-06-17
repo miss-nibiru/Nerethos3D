@@ -16,7 +16,7 @@ public class PlayerActionSelectState : IBattleState
     {
         
         Debug.Log("Player now needs to choose an action");
-        BattleManager.ChangeBattleState(BattleManager.PlayerTargetSelectState);
+        //BattleManager.ChangeBattleState(BattleManager.PlayerTargetSelectState);
         
         
     }
