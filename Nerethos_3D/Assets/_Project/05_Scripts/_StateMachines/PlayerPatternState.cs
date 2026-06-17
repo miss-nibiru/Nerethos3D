@@ -22,7 +22,7 @@ public class PlayerPatternState : IBattleState
     
     public void ConfirmState()
     {
-    
+        
     }
     
     public void PerformState()
@@ -34,7 +34,7 @@ public class PlayerPatternState : IBattleState
     public void ExitState()
     {
         
-        Debug.Log("Exited player target selection > going into pattern stage");
+        Debug.Log("Into attack resolution state.");
         _battleManager.BattleInputManager.DisablePatternInput();
         
     }

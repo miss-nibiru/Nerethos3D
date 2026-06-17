@@ -227,19 +227,7 @@ public class BattleManager : MonoBehaviour
     {
         WeaponData currentWeapon = playerTurnController.CurrentWeapon;
 
-        if (_battleIsOver)
-        {
-            Debug.Log("Battle is already over, you can't attack anymore!");
-            return;
-        }
-        
-        if (_turnActionType != TurnActionType.PatternInput)
-        {
-            Debug.Log("Received pattern but current turn action type is not PatternInput, ignoring pattern.");
-            return;
-            
-        }
-        
+        if (_battleIsOver) return;
         
         WeaponAttackData resolvedAction = currentWeapon.ResolveAction(submittedPattern);
 
@@ -247,16 +235,12 @@ public class BattleManager : MonoBehaviour
         
         if (resolvedAction.ActionType == WeaponAttackData.WeaponActionType.Offensive) // if the action of the player is an offensive action (attack or override)
         {
-            enemyController.TakeDamageOnPoint(resolvedAction.BaseDamage);
             
+            enemyController.TakeDamageOnPoint(resolvedAction.BaseDamage);
             Debug.Log("Dealt " + resolvedAction.BaseDamage + " damage to target point!");
             
-            
             if (enemyController.IsDead)
-            {
                 WinBattle();
-            }
-            
             
         }
         
@@ -273,8 +257,8 @@ public class BattleManager : MonoBehaviour
             Debug.Log("Activating overdrive mode for player!");
         }
         
-        SetTurnActionType(TurnActionType.TurnResolution);
-        Debug.Log("Player action resolved. Turn resolution starting");
+        Debug.Log("Player action resolved. Moving to attack resolution state.");
+        ChangeBattleState(AttackResolutionState);
         
     }
 
