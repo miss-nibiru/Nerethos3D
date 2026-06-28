@@ -80,6 +80,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8f44f762038644da89577b4eec0425dd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3dc23ebb91d334e9fa88ffb742f0e0e0, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 8f44f762038644da89577b4eec0425dd, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2842106103666191004, guid: 1663eed797d4149c1a6fd514a6b0c5aa, type: 3}
     - target: {fileID: 919132149155446097, guid: 8f44f762038644da89577b4eec0425dd, type: 3}
       propertyPath: m_Name
       value: stone_floor_tiles
