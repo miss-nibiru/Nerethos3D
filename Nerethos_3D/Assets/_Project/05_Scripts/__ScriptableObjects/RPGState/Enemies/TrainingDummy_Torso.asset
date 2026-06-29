@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTargetPointData
   targetPointName: TrainingDummy_Torso
   targetPointLocation: 1
+  isCore: 0
+  startsHidden: 0
+  requiredDeadForCoreExposure: 0
+  canBeTargetedWhenBroken: 0
   targetMaxHealth: 5000
   damageMultiplier: 0
   alchemyWeakness: 01000000
   weakStatusEffect: 010000000400000006000000
   resistStatusEffect: 00000000020000000300000007000000
-  canBeBroken: 0
+  canBeBroken: 1

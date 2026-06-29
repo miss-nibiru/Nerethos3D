@@ -6,7 +6,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "EnemyTargetPointData", menuName = "Scriptable Objects/EnemyTargetPointData")] // imporant to add on all scriptable objects to be detected as such!
 
-public class EnemyTargetPointData : ScriptableObject
+public class CombatTargetPointData : ScriptableObject
 
 {
     public enum TargetPointLocation
@@ -43,6 +43,12 @@ public class EnemyTargetPointData : ScriptableObject
     [SerializeField] private string targetPointName;
     [SerializeField] private TargetPointLocation targetPointLocation;
     
+    [Header("Body Role")]
+    [SerializeField] private bool isCore;
+    [SerializeField] private bool startsHidden;
+    [SerializeField] private bool requiredDeadForCoreExposure = true;
+    [SerializeField] private bool canBeTargetedWhenBroken;
+    
     [Header("HP")]
     [SerializeField] private int targetMaxHealth;
     [SerializeField] private float damageMultiplier;
@@ -64,6 +70,10 @@ public class EnemyTargetPointData : ScriptableObject
     public StatusEffectType[] StatusEffects => weakStatusEffect;
     public StatusEffectType[] ResistStatusEffects => resistStatusEffect;
     public bool CanBeBroken => canBeBroken;
+    public bool IsCore => isCore;
+    public bool StartsHidden => startsHidden;
+    public bool RequiredForCoreExposure => requiredDeadForCoreExposure;
+    public bool CanBeTargetedWhenBroken => canBeTargetedWhenBroken;
     
     
     

@@ -14,13 +14,13 @@ public class EnemyData : ScriptableObject
     [System.Serializable] // this is to pack up a bundle of data that can be modified independently I think. Kinda like a prefab?
     public class EnemyTargetPointSetup
     {
-        [SerializeField] private EnemyTargetPointData targetPointData;
+        [SerializeField] private CombatTargetPointData targetPointData;
         [SerializeField] private GameObject normalTargetVisual;
         [SerializeField] private GameObject weakTargetVisual;
         [SerializeField] private Vector3 localPosition;
         [SerializeField] private Vector3 localScale;
         
-        public EnemyTargetPointData TargetPointData => targetPointData;
+        public CombatTargetPointData TargetPointData => targetPointData;
         public GameObject NormalTargetVisual => normalTargetVisual;
         public GameObject WeakTargetVisual => weakTargetVisual;
         public Vector3 LocalPosition => localPosition;

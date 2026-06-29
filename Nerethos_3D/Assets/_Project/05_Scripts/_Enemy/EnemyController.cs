@@ -8,32 +8,32 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private int _enemyAttackPower;
-    private int _enemyDefensePower;
-    private int _enemySpeed;
+    private int _attackPower;
+    private int _defensePower;
+    private int _speed;
 
     [SerializeField] private EnemyData enemyData;
-    private readonly List<EnemyTargetPointController> _targetPoints = new();
-    private EnemyTargetSelector _targetSelector;
-    private EnemyBodyController _bodyController; //connection to helper 
+    private readonly List<CombatTargetPointController> _targetPointControllers = new();
+    private CombatTargetSelector _targetSelector;
+    private CombatBodyController _bodyController; //connection to helper 
 
     public int CurrentHealth => _bodyController.CurrentHealth;
     public int MaxHealth => _bodyController.MaxHealth;
     public bool IsDead => _bodyController.IsDead;
-    public EnemyTargetPointController SelectedTargetPoint => _targetSelector?.SelectedTargetPoint;
+    public CombatTargetPointController SelectedTargetPoint => _targetSelector?.SelectedTargetPoint;
     
 
     private void Start()
     {
         
-        _enemyAttackPower = enemyData.EnemyAttackPower;
-        _enemyDefensePower = enemyData.EnemyDefensePower;
-        _enemySpeed = enemyData.EnemySpeed;
+        _attackPower = enemyData.EnemyAttackPower;
+        _defensePower = enemyData.EnemyDefensePower;
+        _speed = enemyData.EnemySpeed;
 
         SpawnTargetPoints();
 
-        _targetSelector = new EnemyTargetSelector(_targetPoints);
-        _bodyController = new EnemyBodyController(_targetPoints);
+        _targetSelector = new CombatTargetSelector(_targetPointControllers);
+        _bodyController = new CombatBodyController(_targetPointControllers);
 
         SelectPoint(0);
         
@@ -41,7 +41,7 @@ public class EnemyController : MonoBehaviour
 
     private void SpawnTargetPoints()
     {
-        _targetPoints.Clear();
+        _targetPointControllers.Clear();
 
         foreach (EnemyData.EnemyTargetPointSetup pointSetup in enemyData.TargetPoints) // for each initialized target, we need to get a position and visual
         {
@@ -50,11 +50,11 @@ public class EnemyController : MonoBehaviour
             newPointVisual.transform.localPosition = pointSetup.LocalPosition;
             newPointVisual.transform.localScale = pointSetup.LocalScale;
 
-            EnemyTargetPointController targetPointController = newPointVisual.GetComponent<EnemyTargetPointController>();
+            CombatTargetPointController targetPointController = newPointVisual.GetComponent<CombatTargetPointController>();
 
-            if (targetPointController == null) targetPointController = newPointVisual.AddComponent<EnemyTargetPointController>();
+            if (targetPointController == null) targetPointController = newPointVisual.AddComponent<CombatTargetPointController>();
             targetPointController.Initialize(pointSetup.TargetPointData);
-            _targetPoints.Add(targetPointController);
+            _targetPointControllers.Add(targetPointController);
             
         }
     }
@@ -64,7 +64,7 @@ public class EnemyController : MonoBehaviour
         _targetSelector?.SelectPoint(direction);
     }
 
-    public void TakeDamageOnPoint(int damageAmount)
+    public void DamageSelectedTarget(int damageAmount)
     {
         if (SelectedTargetPoint == null) return;
         if (IsDead) return;
@@ -73,6 +73,7 @@ public class EnemyController : MonoBehaviour
 
         string targetPointName = SelectedTargetPoint.PointData.TargetPointName;
         int actualDamageTaken = SelectedTargetPoint.TakeDamage(damageAmount);
+        _bodyController.TryExposeCore(); // if it can be expose, do so here
 
         Debug.Log(gameObject.name + " took " + actualDamageTaken + " damage on " + targetPointName);
         Debug.Log(gameObject.name + " total HP: " + CurrentHealth + "/" + MaxHealth);

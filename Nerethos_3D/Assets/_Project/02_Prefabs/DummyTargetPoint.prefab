@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPointFeedback
   baseSprite: {fileID: 5518794043320818793}
   normalMaterial: {fileID: 2100000, guid: a7512fc17cabc4690bfcc0438469b46a, type: 2}
-  hoverMaterial: {fileID: 2100000, guid: 9b6ac88baba8e40c5880f39c05af591e, type: 2}
+  selectedMaterial: {fileID: 2100000, guid: 9b6ac88baba8e40c5880f39c05af591e, type: 2}
+  brokenMaterial: {fileID: 2100000, guid: ea617be966b3140b0b5faea3d0cc5f1f, type: 2}
 --- !u!114 &6637975173796798220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80ed4d15ccbd4282ab48edfbf82748b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTargetPointController
+  pointData: {fileID: 0}
 --- !u!1 &7492919889355990981
 GameObject:
   m_ObjectHideFlags: 0

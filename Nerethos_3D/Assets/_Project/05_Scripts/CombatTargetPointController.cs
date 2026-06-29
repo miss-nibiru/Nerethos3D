@@ -4,24 +4,37 @@ using UnityEngine;
 /// also controls the visuals of the target points in the future - for now has a hover
 /// </summary>
 
-public class EnemyTargetPointController : MonoBehaviour
+public class CombatTargetPointController : MonoBehaviour
 {
-    [SerializeField] private EnemyTargetPointData pointData;
+    [SerializeField] private CombatTargetPointData pointData;
 
     private int _currentHealth;
     private bool _isBroken;
-    private EnemyPointFeedback _pointFeedback;
+    private bool _isHidden;
+    private CombatTargetPointFeedback _pointFeedback;
 
-    public EnemyTargetPointData PointData => pointData;
+    public CombatTargetPointData PointData => pointData;
     public int CurrentHealth => _currentHealth;
     public bool IsBroken => _isBroken;
+    public bool IsHidden => _isHidden;
+
+    public bool CanBeTargeted
+    {
+        get
+        {
+            if (_isHidden) return false;
+            if (_isBroken && !pointData.CanBeTargetedWhenBroken) return false;
+
+            return true;
+        }
+    }
 
     private void Awake()
     {
-        _pointFeedback = GetComponent<EnemyPointFeedback>();
+        _pointFeedback = GetComponent<CombatTargetPointFeedback>();
     }
 
-    public void Initialize(EnemyTargetPointData data)
+    public void Initialize(CombatTargetPointData data)
     {
         
         pointData = data;
@@ -29,8 +42,12 @@ public class EnemyTargetPointController : MonoBehaviour
         if (!pointData) return;
         _currentHealth = pointData.MaxHealth;
         _isBroken = false;
+        
+        _isHidden = pointData.StartsHidden;
 
-        SetBaseVisual();
+        if (_isHidden) HideTargetPoint();
+        else ShowTargetPoint();
+        
         Debug.Log(pointData.TargetPointName + " initialized with HP: " + _currentHealth + " / MaxHealth from data: " + pointData.MaxHealth);
         
     }
@@ -38,7 +55,6 @@ public class EnemyTargetPointController : MonoBehaviour
     public int TakeDamage(int rawDamageAmount) // when player attacks a target point, it also affects main health bar
     {
         if (_isBroken) return 0;
-       
         int finalDamage = CalculateDamage(rawDamageAmount);
         
         
@@ -102,4 +118,18 @@ public class EnemyTargetPointController : MonoBehaviour
     {
         if (_pointFeedback != null) _pointFeedback.SetSelected();
     }
+    
+    public void ShowTargetPoint()
+    {
+        _isHidden = false;
+        gameObject.SetActive(true);
+        SetBaseVisual();
+    }
+
+    public void HideTargetPoint()
+    {
+        _isHidden = true;
+        gameObject.SetActive(false);
+    }
+    
 }

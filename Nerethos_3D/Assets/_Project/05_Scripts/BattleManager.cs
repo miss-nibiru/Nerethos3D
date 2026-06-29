@@ -118,7 +118,7 @@ public class BattleManager : MonoBehaviour
         if (resolvedAction.ActionType == WeaponAttackData.WeaponActionType.Offensive) // if the action of the player is an offensive action (attack or override)
         {
             
-            enemyController.TakeDamageOnPoint(resolvedAction.BaseDamage);
+            enemyController.DamageSelectedTarget(resolvedAction.BaseDamage);
             Debug.Log("Dealt " + resolvedAction.BaseDamage + " damage to target point!");
             
             if (enemyController.IsDead)

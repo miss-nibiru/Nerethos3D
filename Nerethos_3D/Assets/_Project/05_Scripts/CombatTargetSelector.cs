@@ -5,12 +5,12 @@ using UnityEngine;
 /// getting the list of targets and interact with the selected points
 /// </summary>
 
-public class EnemyTargetSelector
+public class CombatTargetSelector
 {
-    private readonly List<EnemyTargetPointController> _targetPoints;
+    private readonly List<CombatTargetPointController> _targetPoints;
     private int _selectedIndex;
 
-    public EnemyTargetPointController SelectedTargetPoint
+    public CombatTargetPointController SelectedTargetPoint
     {
         get
         {
@@ -19,7 +19,7 @@ public class EnemyTargetSelector
         }
     }
 
-    public EnemyTargetSelector(List<EnemyTargetPointController> targetPoints)
+    public CombatTargetSelector(List<CombatTargetPointController> targetPoints)
     {
         _targetPoints = targetPoints;
         _selectedIndex = 0;
@@ -30,9 +30,28 @@ public class EnemyTargetSelector
         if (_targetPoints == null || _targetPoints.Count == 0) return;
         SelectedTargetPoint.SetBaseVisual();
 
-        _selectedIndex = GetWrappedIndex(_selectedIndex + direction);
+        _selectedIndex = GetNextTargetableIndex(direction);
         SelectedTargetPoint.SetSelectedVisual();
         Debug.Log("Selected target point: " + SelectedTargetPoint.PointData.TargetPointName);
+    }
+    
+    private bool IsTargetableIndex(int index) // we need to say the core is not targeteable when its hidden
+    {
+        return _targetPoints[index].CanBeTargeted;
+    }
+    
+    private int GetNextTargetableIndex(int direction)
+    {
+        int checkedPoints = 0;
+        int nextIndex = _selectedIndex;
+
+        while (checkedPoints < _targetPoints.Count)
+        {
+            nextIndex = GetWrappedIndex(nextIndex + direction);
+            if (IsTargetableIndex(nextIndex)) return nextIndex; checkedPoints++;
+        }
+
+        return _selectedIndex;
     }
 
     private int GetWrappedIndex(int index)

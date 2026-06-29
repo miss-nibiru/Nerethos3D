@@ -5,14 +5,15 @@ using UnityEngine;
 /// also each target point can be changed depending on the status effect
 /// For now just change in materials
 /// </summary>
-public class EnemyPointFeedback : MonoBehaviour
+public class CombatTargetPointFeedback : MonoBehaviour
 {
     [Header("Sprite")]
     [SerializeField] private SpriteRenderer baseSprite;
     
     [Header("Materials")]
     [SerializeField] private Material normalMaterial;
-    [SerializeField] private Material hoverMaterial;
+    [SerializeField] private Material selectedMaterial;
+    [SerializeField] private Material brokenMaterial;
 
 
     void Awake()
@@ -30,8 +31,8 @@ public class EnemyPointFeedback : MonoBehaviour
     
     public void SetSelected()
     {
-        if(!baseSprite || !hoverMaterial) return;
-        baseSprite.material = hoverMaterial;
+        if(!baseSprite || !selectedMaterial) return;
+        baseSprite.material = selectedMaterial;
     }
     
 }
