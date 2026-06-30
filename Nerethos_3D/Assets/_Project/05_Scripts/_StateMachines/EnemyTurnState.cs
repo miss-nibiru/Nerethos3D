@@ -1,0 +1,59 @@
+using UnityEngine;
+
+public class EnemyTurnState : IBattleState
+{ 
+    private BattleManager _battleManager;
+    
+    public BattleManager BattleManager => _battleManager;
+
+
+    public void Initialize(BattleManager battleManager)
+    {
+        _battleManager = battleManager;
+    }
+    
+    public void EnterState()
+    {
+        Debug.Log("Starting Enemy turn now");
+        
+        //damage testing for now, to be updated soon!
+        BattleManager.PlayerController.DamageSelectedTarget(25);
+       
+        if (BattleManager.PlayerController.IsDead)
+        {
+            Debug.Log ("player is dead");
+            //call battle manager dead stuff here
+            return;
+        }
+        
+        BattleManager.ChangeBattleState(BattleManager.PlayerActionSelectState);
+
+    }
+    
+    public void ConfirmState()
+    {
+        //sss
+    
+    }
+    
+    public void PerformState()
+    {
+       //working on it!
+    }
+
+
+    public void ExitState()
+    {
+        
+        Debug.Log("Enemy turn is over now");
+        
+    }
+    
+    public void MoveState(int direction)
+    {
+        
+       //
+    
+    }
+
+}

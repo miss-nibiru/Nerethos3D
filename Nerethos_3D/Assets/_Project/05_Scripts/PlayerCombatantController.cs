@@ -57,5 +57,29 @@ public class PlayerCombatantController : MonoBehaviour
         _targetSelector?.SelectPoint(direction); // pases the responsibility to target selector -- i think this makes sure the enemy can access the target poitns
     }
     
+    public void DamageSelectedTarget(int damageAmount)
+    {
+        if (SelectedTargetPoint == null) return;
+        if (IsDead) return;
+
+        string targetPointName = SelectedTargetPoint.PointData.TargetPointName;
+        int actualDamageTaken = SelectedTargetPoint.TakeDamage(damageAmount);
+
+        _bodyController.TryExposeCore();
+
+        Debug.Log(gameObject.name + " took " + actualDamageTaken + " damage on " + targetPointName);
+        Debug.Log(gameObject.name + " total HP: " + CurrentHealth + "/" + MaxHealth);
+
+        if (SelectedTargetPoint.IsBroken)
+        {
+            Debug.Log(targetPointName + " is broken.");
+        }
+
+        if (IsDead)
+        {
+            Debug.Log(gameObject.name + " has been defeated.");
+        }
+    }
+    
     
 }

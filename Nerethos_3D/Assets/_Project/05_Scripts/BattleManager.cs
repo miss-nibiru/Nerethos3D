@@ -12,8 +12,12 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private BattleInputManager inputManager;
     [SerializeField] private BattleUIManager battleUIManager;
     [SerializeField] private StateMachine stateMachine;
+    
+    [Header("Player States")]
     [SerializeField] private PlayerTurnController playerTurnController;
     [SerializeField] private PlayerCombatantController playerController;
+    
+    [Header("Enemy States")]
     [SerializeField] private EnemyController enemyController;
 
     //1-BATTLE START
@@ -30,9 +34,11 @@ public class BattleManager : MonoBehaviour
     
     //5-ATTACK RESOLUTION STATE
     private PlayerAttackResolutionState _attackResolutionState;
+    private EnemyTurnState _enemyTurnState;
     
     public StateMachine StateMachine => stateMachine;
     public PlayerTurnController PlayerTurnController => playerTurnController;
+    public PlayerCombatantController PlayerController => playerController;
     public EnemyController EnemyController => enemyController;
     public BattleUIManager BattleUIManager => battleUIManager;
     public BattleInputManager BattleInputManager => inputManager;
@@ -42,6 +48,7 @@ public class BattleManager : MonoBehaviour
     public PlayerTargetSelectState PlayerTargetSelectState => _playerTargetSelectState;
     public PlayerPatternState PlayerPatternState => _playerPatternState;
     public PlayerAttackResolutionState AttackResolutionState => _attackResolutionState;
+    public EnemyTurnState EnemyTurnState => EnemyTurnState;
     
     private bool _battleIsOver;
 
@@ -61,6 +68,9 @@ public class BattleManager : MonoBehaviour
 
         _attackResolutionState = new PlayerAttackResolutionState();
         _attackResolutionState.Initialize(this);
+        
+        _enemyTurnState = new EnemyTurnState();
+        _enemyTurnState.Initialize(this);
         
         ChangeBattleState(_battleStartState);
 
