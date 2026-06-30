@@ -4,7 +4,7 @@ using UnityEngine;
 ///  holds all the necessary information of each target point and how the weak point works on most regular enemies, nonboss enemies
 /// </summary>
 
-[CreateAssetMenu(fileName = "EnemyTargetPointData", menuName = "Scriptable Objects/EnemyTargetPointData")] // imporant to add on all scriptable objects to be detected as such!
+[CreateAssetMenu(fileName = "CombatantTargetPoints", menuName = "Scriptable Objects/CombatantTargetPoints")] // imporant to add on all scriptable objects to be detected as such!
 
 public class CombatTargetPointData : ScriptableObject
 
@@ -14,10 +14,12 @@ public class CombatTargetPointData : ScriptableObject
         Head,
         Torso,
         Abdomen,
+        Legs,
         LeftLeg,
         RightLeg,
         Chest,
         Back,
+        Core
     }
 
     public enum AlchemyWeakness

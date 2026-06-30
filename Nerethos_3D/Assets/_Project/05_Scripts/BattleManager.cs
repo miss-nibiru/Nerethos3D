@@ -13,6 +13,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private BattleUIManager battleUIManager;
     [SerializeField] private StateMachine stateMachine;
     [SerializeField] private PlayerTurnController playerTurnController;
+    [SerializeField] private PlayerCombatantController playerController;
     [SerializeField] private EnemyController enemyController;
 
     //1-BATTLE START

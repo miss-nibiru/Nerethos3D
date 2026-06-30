@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 7820673772009233208}
   - component: {fileID: 4525572922926602796}
   - component: {fileID: 2657287094540845559}
-  - component: {fileID: 6256283514483884985}
   m_Layer: 0
   m_Name: DummyTorso
   m_TagString: Untagged
@@ -372,19 +371,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6256283514483884985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6255075017534791933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93589d691028f4befb47f6b3583886bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerTurnController
-  currentWeapon: {fileID: 0}
 --- !u!1 &7611203657648166102
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,5 +449,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e856638166a47009d2cbfdbbaa40a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  enemyCurrentHealth: 10000
   enemyData: {fileID: 11400000, guid: 24c3f7fe97f4d4a22acec28684164e50, type: 2}
