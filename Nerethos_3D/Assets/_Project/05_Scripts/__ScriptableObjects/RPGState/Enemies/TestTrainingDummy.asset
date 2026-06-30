@@ -32,7 +32,7 @@ MonoBehaviour:
   - targetPointData: {fileID: 11400000, guid: 5a690d4443be943d4b6896716c7e6f77, type: 2}
     normalTargetVisual: {fileID: 650820611138938930, guid: 7d6437afbaabb484f9f41080b0aa3649, type: 3}
     weakTargetVisual: {fileID: 650820611138938930, guid: 7d6437afbaabb484f9f41080b0aa3649, type: 3}
-    localPosition: {x: 0, y: 0, z: -0.5}
+    localPosition: {x: -0.5, y: 1.9, z: -0.5}
     localScale: {x: 2, y: 2, z: 2}
   enemyName: Training Dummy
   enemyMaxHealth: 15000

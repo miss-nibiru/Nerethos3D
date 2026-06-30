@@ -48,7 +48,7 @@ public class BattleManager : MonoBehaviour
     public PlayerTargetSelectState PlayerTargetSelectState => _playerTargetSelectState;
     public PlayerPatternState PlayerPatternState => _playerPatternState;
     public PlayerAttackResolutionState AttackResolutionState => _attackResolutionState;
-    public EnemyTurnState EnemyTurnState => EnemyTurnState;
+    public EnemyTurnState EnemyTurnState => _enemyTurnState;
     
     private bool _battleIsOver;
 

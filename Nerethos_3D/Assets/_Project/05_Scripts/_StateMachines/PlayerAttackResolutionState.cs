@@ -3,8 +3,6 @@ using UnityEngine;
 public class PlayerAttackResolutionState : IBattleState
 { 
     private BattleManager _battleManager;
-    private bool _hasResolved;
-
     public BattleManager BattleManager => _battleManager;
 
     public void Initialize(BattleManager battleManager)
@@ -16,7 +14,7 @@ public class PlayerAttackResolutionState : IBattleState
     public void EnterState()
     {
         Debug.Log("Resolving player attack");
-        _hasResolved = false;
+        BattleManager.ChangeBattleState(BattleManager.EnemyTurnState);
     }
     
     public void ConfirmState()
@@ -27,10 +25,8 @@ public class PlayerAttackResolutionState : IBattleState
     
     public void PerformState()
     {
-        if (_hasResolved) return;
-
-        _hasResolved = true;
-        BattleManager.ChangeBattleState(BattleManager.EnemyTurnState);
+        //
+        
     }
 
     public void ExitState()
