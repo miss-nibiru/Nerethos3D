@@ -16,13 +16,13 @@ public class EnemyTurnState : IBattleState
     {
         Debug.Log("Starting Enemy turn now");
         
-        //damage testing for now, to be updated soon!
-        BattleManager.PlayerController.DamageSelectedTarget(25);
+        BattleManager.PlayerController.SelectRandomTargetPoint();//first select the target randomly
+        BattleManager.PlayerController.DamageSelectedTarget(BattleManager.EnemyController.AttackPower);
        
         if (BattleManager.PlayerController.IsDead)
         {
             Debug.Log ("player is dead");
-            //call battle manager dead stuff here
+            BattleManager.LoseBattle();
             return;
         }
         

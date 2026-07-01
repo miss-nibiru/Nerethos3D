@@ -18,7 +18,7 @@ MonoBehaviour:
   startsHidden: 0
   requiredDeadForCoreExposure: 1
   canBeTargetedWhenBroken: 0
-  targetMaxHealth: 1
+  targetMaxHealth: 3
   damageMultiplier: 0
   alchemyWeakness: 01000000
   weakStatusEffect: 010000000400000006000000

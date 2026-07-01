@@ -57,6 +57,11 @@ public class PlayerCombatantController : MonoBehaviour
         _targetSelector?.SelectPoint(direction); // pases the responsibility to target selector -- i think this makes sure the enemy can access the target poitns
     }
     
+    public void SelectRandomTargetPoint()
+    {
+        _targetSelector?.SelectRandomTargetablePoint(); //also for target selector
+    }
+    
     public void DamageSelectedTarget(int damageAmount)
     {
         if (SelectedTargetPoint == null) return;

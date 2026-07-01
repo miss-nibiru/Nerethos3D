@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     private CombatTargetSelector _targetSelector;
     private CombatBodyController _bodyController; //connection to helper 
 
+    public int AttackPower => _attackPower;
     public int CurrentHealth => _bodyController.CurrentHealth;
     public int MaxHealth => _bodyController.MaxHealth;
     public bool IsDead => _bodyController.IsDead;

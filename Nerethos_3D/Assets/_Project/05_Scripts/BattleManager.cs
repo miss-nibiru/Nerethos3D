@@ -126,15 +126,16 @@ public class BattleManager : MonoBehaviour
 
         Debug.Log("Resolved Attack: " + resolvedAction.AttackName + " Damage: " + resolvedAction.BaseDamage);
         
-        if (resolvedAction.ActionType == WeaponAttackData.WeaponActionType.Offensive) // if the action of the player is an offensive action (attack or override)
+        if (resolvedAction.ActionType == WeaponAttackData.WeaponActionType.Offensive)
         {
-            
             enemyController.DamageSelectedTarget(resolvedAction.BaseDamage);
             Debug.Log("Dealt " + resolvedAction.BaseDamage + " damage to target point!");
-            
+    
             if (enemyController.IsDead)
+            {
                 WinBattle();
-            
+                return;
+            }
         }
         
         else if (resolvedAction.ActionType == WeaponAttackData.WeaponActionType.Defensive)
@@ -173,5 +174,13 @@ public class BattleManager : MonoBehaviour
         
     }
 
-    
+    public void LoseBattle()
+    {
+        _battleIsOver = true;
+        Debug.Log("Player has lost the battle!");
+        
+        //still need to add win and lose wrap up 
+    }
+
+
 }
