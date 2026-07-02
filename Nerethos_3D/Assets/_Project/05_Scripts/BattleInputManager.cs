@@ -17,8 +17,8 @@ public class BattleInputManager : MonoBehaviour
     [SerializeField] private BattleManager battleManager; // reference to battle manager to send pattern to it
     private bool _canReceivePatternInput;
 
-    private List<WeaponAttackData.InputActionType>
-        _currentPattern = new List<WeaponAttackData.InputActionType>(); // create a list of patterns to store in memory
+    private List<PlayerAttackData.InputActionType>
+        _currentPattern = new List<PlayerAttackData.InputActionType>(); // create a list of patterns to store in memory
 
 
     private void Awake()
@@ -101,8 +101,8 @@ public class BattleInputManager : MonoBehaviour
         
         Debug.Log("Submitted Pattern: " + string.Join(" + ", _currentPattern));
 
-        List<WeaponAttackData.InputActionType> submittedPattern =
-            new List<WeaponAttackData.InputActionType>(_currentPattern);
+        List<PlayerAttackData.InputActionType> submittedPattern =
+            new List<PlayerAttackData.InputActionType>(_currentPattern);
 
         battleManager.ReceivedPattern(submittedPattern);
 
@@ -112,46 +112,46 @@ public class BattleInputManager : MonoBehaviour
 
     private void OnRightPressed(InputAction.CallbackContext ctx)
     {
-        AddInput(WeaponAttackData.InputActionType.Right);
+        AddInput(PlayerAttackData.InputActionType.Right);
     }
 
     private void OnLeftPressed(InputAction.CallbackContext ctx)
     {
-        AddInput(WeaponAttackData.InputActionType.Left);
+        AddInput(PlayerAttackData.InputActionType.Left);
     }
 
     private void OnUpPressed(InputAction.CallbackContext ctx)
     {
-        AddInput(WeaponAttackData.InputActionType.Up);
+        AddInput(PlayerAttackData.InputActionType.Up);
     }
 
     private void OnDownPressed(InputAction.CallbackContext ctx)
     {
-        AddInput(WeaponAttackData.InputActionType.Down);
+        AddInput(PlayerAttackData.InputActionType.Down);
     }
 
     private void OnAPressed(InputAction.CallbackContext ctx)
     {
-        AddInput(WeaponAttackData.InputActionType.A);
+        AddInput(PlayerAttackData.InputActionType.A);
     }
     
     private void OnSPressed(InputAction.CallbackContext ctx)
     {
-        AddInput(WeaponAttackData.InputActionType.S);
+        AddInput(PlayerAttackData.InputActionType.S);
     }
     
     private void OnZPressed(InputAction.CallbackContext ctx)
     {
-        AddInput(WeaponAttackData.InputActionType.Z);
+        AddInput(PlayerAttackData.InputActionType.Z);
     }
 
     private void OnXPressed(InputAction.CallbackContext ctx)
     {
-        AddInput(WeaponAttackData.InputActionType.X);
+        AddInput(PlayerAttackData.InputActionType.X);
     }
     
 
-    public void AddInput(WeaponAttackData.InputActionType inputName)
+    public void AddInput(PlayerAttackData.InputActionType inputName)
     {
         
         if (!_canReceivePatternInput) return;

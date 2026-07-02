@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponAttackData", menuName = "Scriptable Objects/Weapons/Weapon Attack Data")]
-public class WeaponAttackData : ScriptableObject
+[CreateAssetMenu(fileName = "PlayerAttackData", menuName = "Scriptable Objects/PlayerAttackData")]
+public class PlayerAttackData : ScriptableObject
 {
     public enum InputActionType
     {

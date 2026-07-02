@@ -64,26 +64,40 @@ public class PlayerCombatantController : MonoBehaviour
     
     public void DamageSelectedTarget(int damageAmount)
     {
-        if (SelectedTargetPoint == null) return;
-        if (IsDead) return;
+        DamageTargetPoint(SelectedTargetPoint, damageAmount); // send to the shared damage helper
+    }
 
-        string targetPointName = SelectedTargetPoint.PointData.TargetPointName;
-        int actualDamageTaken = SelectedTargetPoint.TakeDamage(damageAmount);
+    private void DamageTargetPoint(CombatTargetPointController targetPoint, int damageAmount)
+    {
+        if(!targetPoint) return;
+        if(IsDead) return;
+
+        string targetPointName = targetPoint.PointData.TargetPointName;
+        int actualDamageTaken = targetPoint.TakeDamage(damageAmount);
 
         _bodyController.TryExposeCore();
-
+        
+        
         Debug.Log(gameObject.name + " took " + actualDamageTaken + " damage on " + targetPointName);
         Debug.Log(gameObject.name + " total HP: " + CurrentHealth + "/" + MaxHealth);
-
-        if (SelectedTargetPoint.IsBroken)
+        
+        if (targetPoint.IsBroken) 
         {
             Debug.Log(targetPointName + " is broken.");
         }
-
+        
         if (IsDead)
         {
-            Debug.Log(gameObject.name + " has been defeated.");
+            Debug.Log(gameObject.name + " has been defeated.");            
         }
+
+    }
+
+    public void DamageRandomTargetPoint(int damageAmount)
+    {
+        CombatTargetPointController randomTarget = _targetSelector?.SelectRandomTargetablePoint();
+        if (!randomTarget) return;
+        DamageTargetPoint(randomTarget, damageAmount);
     }
     
     

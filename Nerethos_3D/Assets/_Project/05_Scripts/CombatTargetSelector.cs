@@ -32,7 +32,9 @@ public class CombatTargetSelector
         SelectedTargetPoint.SetBaseVisual();
 
         _selectedIndex = GetNextTargetableIndex(direction);
+        
         SelectedTargetPoint.SetSelectedVisual();
+        
         Debug.Log("Selected target point: " + SelectedTargetPoint.PointData.TargetPointName);
     }
     
@@ -59,7 +61,10 @@ public class CombatTargetSelector
         if (SelectedTargetPoint != null) SelectedTargetPoint.SetBaseVisual();
         _selectedIndex = _targetPoints.IndexOf(randomTargetPoint);
 
+        if (!SelectedTargetPoint) return null;
         SelectedTargetPoint.SetSelectedVisual();
+        
+        
         Debug.Log("Randomly selected target point: " + SelectedTargetPoint.PointData.TargetPointName);
         return SelectedTargetPoint;
     }
@@ -77,7 +82,8 @@ public class CombatTargetSelector
         while (checkedPoints < _targetPoints.Count)
         {
             nextIndex = GetWrappedIndex(nextIndex + direction);
-            if (IsTargetableIndex(nextIndex)) return nextIndex; checkedPoints++;
+            if (IsTargetableIndex(nextIndex)) return nextIndex;
+            checkedPoints++;
         }
 
         return _selectedIndex;

@@ -36,6 +36,6 @@ MonoBehaviour:
     localScale: {x: 2, y: 2, z: 2}
   enemyName: Training Dummy
   enemyMaxHealth: 20
-  enemyAttackPower: 15
+  enemyAttackPower: 999
   enemyDefensePower: 0
   enemySpeed: 5

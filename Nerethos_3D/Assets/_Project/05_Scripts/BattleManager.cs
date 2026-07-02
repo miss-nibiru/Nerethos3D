@@ -116,17 +116,17 @@ public class BattleManager : MonoBehaviour
     }
     
     
-    public void ReceivedPattern(List<WeaponAttackData.InputActionType> submittedPattern)
+    public void ReceivedPattern(List<PlayerAttackData.InputActionType> submittedPattern)
     {
         WeaponData currentWeapon = playerTurnController.CurrentWeapon;
 
         if (_battleIsOver) return;
         
-        WeaponAttackData resolvedAction = currentWeapon.ResolveAction(submittedPattern);
+        PlayerAttackData resolvedAction = currentWeapon.ResolveAction(submittedPattern);
 
         Debug.Log("Resolved Attack: " + resolvedAction.AttackName + " Damage: " + resolvedAction.BaseDamage);
         
-        if (resolvedAction.ActionType == WeaponAttackData.WeaponActionType.Offensive)
+        if (resolvedAction.ActionType == PlayerAttackData.WeaponActionType.Offensive)
         {
             enemyController.DamageSelectedTarget(resolvedAction.BaseDamage);
             Debug.Log("Dealt " + resolvedAction.BaseDamage + " damage to target point!");
@@ -138,14 +138,14 @@ public class BattleManager : MonoBehaviour
             }
         }
         
-        else if (resolvedAction.ActionType == WeaponAttackData.WeaponActionType.Defensive)
+        else if (resolvedAction.ActionType == PlayerAttackData.WeaponActionType.Defensive)
         {
             // apply defense buff to player
             Debug.Log("Applying defense buff to player!");
         }
         
         
-        else if (resolvedAction.ActionType == WeaponAttackData.WeaponActionType.Overdrive)
+        else if (resolvedAction.ActionType == PlayerAttackData.WeaponActionType.Overdrive)
         {
             //to use the overdrive the player needs to have created a correct chain of inputs and actions
             Debug.Log("Activating overdrive mode for player!");
