@@ -16,56 +16,33 @@ public class EnemyAttackData : ScriptableObject
         Override
         
     }
-
-    public enum DamageEffects
-    {
-        Corrosion,
-        Marked,
-        Stunned,
-        Bleeding,
-        Guarding,
-        Berserk,
-        Riposte,
-        Madness
-    }
+    
 
     [SerializeField] private string attackName;
     [SerializeField] private MoveType moveType;
-    [SerializeField] private float attackDamage;
+    
+    [SerializeField] private int baseDamage;
     [SerializeField] private float coolDownTime;
     [SerializeField] private float accuracy;
     
     [SerializeField] private bool canTargetPlayer;
     [SerializeField] private bool canTargetSelf;
     
-    [SerializeField] private int baseDamage;
-    [SerializeField] private DamageEffects damageEffects;
-    [SerializeField] private float procChance;
-    [SerializeField] private float damageOverTime;
-    [SerializeField] private int effectTurnDuration;
-
     [SerializeField] private bool canCrit;
     [SerializeField] private float criticalChance;
-    [SerializeField] private float criticalDamage;
-    [SerializeField] private float criticalOverTime;
+    [SerializeField] private float criticalMultiplier;
 
     public string AttackName => attackName;
     public MoveType MoveKind => moveType; 
-    public float AttackDamage => attackDamage;
+    public int BaseDamage => baseDamage;
     public float CoolDownTime => coolDownTime;
     public float Accuracy =>  accuracy;
 
     public bool CanTargetPlayer => canTargetPlayer;
     public bool CanTargetSelf => canTargetSelf;
     
-    public int BaseDamage => baseDamage;
-    public DamageEffects DamageType => damageEffects;
-    public float ProcChance => procChance;
-    public float DamageOverTime => damageOverTime;
-    public int EffectTurnDuration => effectTurnDuration;
     public bool CanCrit  => canCrit;
     public float CriticalChance =>  criticalChance;
-    public float CriticalDamage  => criticalDamage;
-    public float CriticalOverTime  => criticalOverTime;
+    public float CriticalMultiplier  => criticalMultiplier;
 
 }

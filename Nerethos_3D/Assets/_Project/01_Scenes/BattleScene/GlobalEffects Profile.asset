@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5885908187273418747
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cfe8c676830bb499d7d253d35af023, type: 3}
+  m_Name: Halftone
+  m_EditorClassIdentifier: Seanzo.PostProcess.Effects::Seanzo.PostProcess.Effects.Halftone
+  active: 1
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  dotSize:
+    m_OverrideState: 1
+    m_Value: 8
+  angle:
+    m_OverrideState: 1
+    m_Value: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.01
+--- !u!114 &-5051503177895294830
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 059a9f40e24117047aaf394822ea9756, type: 3}
+  m_Name: Posterize
+  m_EditorClassIdentifier: Seanzo.PostProcess.Effects::Seanzo.PostProcess.Effects.Posterize
+  active: 0
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  levels:
+    m_OverrideState: 1
+    m_Value: 32
+--- !u!114 &-953513507953282895
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc4e75b979f4e94e91ca38c9fc62613, type: 3}
+  m_Name: OilPaint
+  m_EditorClassIdentifier: Seanzo.PostProcess.Effects::Seanzo.PostProcess.Effects.OilPaint
+  active: 0
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  strokeSize:
+    m_OverrideState: 1
+    m_Value: 4
+  smoothness:
+    m_OverrideState: 1
+    m_Value: 0.15
+  directionWeight:
+    m_OverrideState: 1
+    m_Value: 0.017
+  sharpness:
+    m_OverrideState: 1
+    m_Value: 1.19
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: GlobalEffects Profile
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
+  components:
+  - {fileID: -953513507953282895}
+  - {fileID: -5051503177895294830}
+  - {fileID: -5885908187273418747}

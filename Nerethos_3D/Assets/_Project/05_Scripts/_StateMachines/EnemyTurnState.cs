@@ -15,8 +15,16 @@ public class EnemyTurnState : IBattleState
     public void EnterState()
     {
         Debug.Log("Starting Enemy turn now");
+        EnemyAttackData chosenAttack = BattleManager.EnemyController.ChooseRandomAttack();
+        int damageAmount = BattleManager.EnemyController.AttackPower;
         
-        BattleManager.PlayerController.DamageRandomTargetPoint(BattleManager.EnemyController.AttackPower);
+        if (chosenAttack != null)
+        {
+            damageAmount = chosenAttack.BaseDamage;
+            Debug.Log("Enemy has chosen " + chosenAttack.AttackName);
+        }
+
+        BattleManager.PlayerController.DamageRandomTargetPoint(damageAmount);
        
         if (BattleManager.PlayerController.IsDead)
         {

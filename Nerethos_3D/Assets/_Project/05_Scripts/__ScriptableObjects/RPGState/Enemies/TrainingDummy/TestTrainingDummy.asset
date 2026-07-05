@@ -39,3 +39,6 @@ MonoBehaviour:
   enemyAttackPower: 999
   enemyDefensePower: 0
   enemySpeed: 5
+  attackPool:
+  - {fileID: 11400000, guid: 63b93e29f420d450d8cd19751af6c29b, type: 2}
+  - {fileID: 11400000, guid: 7df0e0c6ced994d8dbee071fef1dc9fd, type: 2}

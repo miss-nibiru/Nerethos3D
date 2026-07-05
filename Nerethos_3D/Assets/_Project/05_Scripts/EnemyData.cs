@@ -46,15 +46,20 @@ public class EnemyData : ScriptableObject
     [SerializeField] private int enemyAttackPower;
     [SerializeField] private int enemyDefensePower;
     [SerializeField] private int enemySpeed;
+    [SerializeField] private List<EnemyAttackData> attackPool;
     
     public string EnemyName => enemyName;
-    public List<EnemyTargetPointSetup> TargetPoints => targetPoints;
+    public EnemyType EnemyTypeValue => enemyType;
     public int EnemyMaxHealth => enemyMaxHealth;
     public int EnemyAttackPower => enemyAttackPower;
     public int EnemyDefensePower => enemyDefensePower;
     public int EnemySpeed => enemySpeed;
+    public List<EnemyAttackData> AttackPool => attackPool;
     
-    public EnemyType EnemyTypeValue => enemyType;
+    public List<EnemyTargetPointSetup> TargetPoints => targetPoints;
+   
+    
+    
     
     private void OnValidate() // when the monster is detected in game, recognize it immediately and tell me who it is --- helpful to have now for the future ui implementation
     {
