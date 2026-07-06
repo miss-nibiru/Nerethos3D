@@ -768,6 +768,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192494163}
   m_CullTransparentMesh: 1
+--- !u!1 &196167094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 196167098}
+  - component: {fileID: 196167097}
+  - component: {fileID: 196167096}
+  - component: {fileID: 196167095}
+  m_Layer: 0
+  m_Name: Sean'sEffectBank
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &196167095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196167094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995248b6afb3e49f0bd1e92b432e14af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Seanzo.PostProcess.Player::Seanzo.PostProcess.Player.EffectBank
+  effects: []
+--- !u!114 &196167096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196167094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e033904e4b2f4c77a3e21a6ccb58388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Seanzo.PostProcess.Player::Seanzo.PostProcess.Player.EffectPlayer
+--- !u!114 &196167097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196167094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df57895115294449b7df394eeb73502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Seanzo.PostProcess.Player::Seanzo.PostProcess.Player.EffectOverrideEngine
+--- !u!4 &196167098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196167094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 560.8307, y: 691.76685, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &196528565
 GameObject:
   m_ObjectHideFlags: 0
@@ -5200,10 +5271,11 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1303422773}
+  - {fileID: 1574082338}
   - {fileID: 1884935040}
   - {fileID: 482670302}
   - {fileID: 230901991}
   - {fileID: 1220687474}
   - {fileID: 108185817}
   - {fileID: 2579282440118731314}
-  - {fileID: 1574082338}
+  - {fileID: 196167098}

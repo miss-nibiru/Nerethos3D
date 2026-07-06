@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: Counter-Argument
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
-  attackName: Counter-Argument
-  inputPatterns: 0200000006000000
-  actionType: 1
-  baseDamage: 0
+  m_Script: {fileID: 11500000, guid: 5f3c9f26ef37248debf17d40555c1e36, type: 3}
+  m_Name: S0_OffensiveStrategy
+  m_EditorClassIdentifier: Assembly-CSharp::OffensiveAttackStrategy

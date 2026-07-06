@@ -27,11 +27,13 @@ public class PlayerAttackData : ScriptableObject
     [SerializeField] private string attackName;
     [SerializeField] private List<InputActionType> inputPatterns;
     [SerializeField] private WeaponActionType actionType;
+    [SerializeField] private PlayerAttackStrategy attackStrategy;
     
     [SerializeField] private int baseDamage;
     
     public string AttackName => attackName;
     public List<InputActionType> InputPatterns => inputPatterns;
     public WeaponActionType ActionType => actionType;
+    public PlayerAttackStrategy AttackStrategy => attackStrategy;
     public int BaseDamage => baseDamage;
 }

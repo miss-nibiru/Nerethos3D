@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: BasicAttack
+  m_Name: O_FinalSentence
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
-  attackName: Basic Attack
-  inputPatterns: 
-  baseDamage: 2
+  attackName: Final Sentence
+  inputPatterns: 0300000003000000050000000500000004000000
+  actionType: 2
+  attackStrategy: {fileID: 11400000, guid: 69cbfe7c98d1a4b20a62e8e93b68c198, type: 2}
+  baseDamage: 100

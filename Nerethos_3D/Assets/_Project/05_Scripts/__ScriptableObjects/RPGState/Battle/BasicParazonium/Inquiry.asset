@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: SubmittedEvidence
+  m_Name: Inquiry
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
-  attackName: Submitted Evidence
-  inputPatterns: 010000000300000005000000
+  attackName: Inquiry
+  inputPatterns: 0100000005000000
   actionType: 1
+  attackStrategy: {fileID: 11400000, guid: 0449984c152304d529bfbfa813f983f7, type: 2}
   baseDamage: 0

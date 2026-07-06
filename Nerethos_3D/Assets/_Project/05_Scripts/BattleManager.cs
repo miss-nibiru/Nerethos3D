@@ -119,41 +119,19 @@ public class BattleManager : MonoBehaviour
     public void ReceivedPattern(List<PlayerAttackData.InputActionType> submittedPattern)
     {
         WeaponData currentWeapon = playerTurnController.CurrentWeapon;
-
         if (_battleIsOver) return;
         
         PlayerAttackData resolvedAction = currentWeapon.ResolveAction(submittedPattern);
-
         Debug.Log("Resolved Attack: " + resolvedAction.AttackName + " Damage: " + resolvedAction.BaseDamage);
+
+        if (resolvedAction.AttackStrategy == null) return;
+        resolvedAction.AttackStrategy.Execute(resolvedAction, this);
+
+        //add defense and override strategy missing
         
-        if (resolvedAction.ActionType == PlayerAttackData.WeaponActionType.Offensive)
-        {
-            enemyController.DamageSelectedTarget(resolvedAction.BaseDamage);
-            Debug.Log("Dealt " + resolvedAction.BaseDamage + " damage to target point!");
-    
-            if (enemyController.IsDead)
-            {
-                WinBattle();
-                return;
-            }
-        }
-        
-        else if (resolvedAction.ActionType == PlayerAttackData.WeaponActionType.Defensive)
-        {
-            // apply defense buff to player
-            Debug.Log("Applying defense buff to player!");
-        }
-        
-        
-        else if (resolvedAction.ActionType == PlayerAttackData.WeaponActionType.Overdrive)
-        {
-            //to use the overdrive the player needs to have created a correct chain of inputs and actions
-            Debug.Log("Activating overdrive mode for player!");
-        }
-        
+        if (_battleIsOver) return;
         Debug.Log("Player action resolved. Moving to attack resolution state.");
         ChangeBattleState(AttackResolutionState);
-        
     }
 
     private void ResolvePlayerTurn()
@@ -166,7 +144,7 @@ public class BattleManager : MonoBehaviour
         
     }
 
-    private void WinBattle()
+    public void WinBattle()
     {
         
         _battleIsOver = true;

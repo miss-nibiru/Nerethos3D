@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cfe8c676830bb499d7d253d35af023, type: 3}
   m_Name: Halftone
   m_EditorClassIdentifier: Seanzo.PostProcess.Effects::Seanzo.PostProcess.Effects.Halftone
-  active: 1
+  active: 0
   enable:
     m_OverrideState: 1
     m_Value: 1

@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: JudgesVerdict
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
-  attackName: Judges Verdict
-  inputPatterns: 050000000300000004000000
-  baseDamage: 25
+  m_Script: {fileID: 11500000, guid: c085685b89d8940b3bfdb18f6b06897e, type: 3}
+  m_Name: BS_BasicStrategy
+  m_EditorClassIdentifier: Assembly-CSharp::BasicAttackStrategy

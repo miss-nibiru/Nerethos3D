@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: HeavySentence
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
-  attackName: Heavy Sentence
-  inputPatterns: 030000000400000005000000
-  baseDamage: 20
+  m_Script: {fileID: 11500000, guid: 507552c6f758e4e68aca58c8daefbd3e, type: 3}
+  m_Name: S1_DefensiveStrategy
+  m_EditorClassIdentifier: Assembly-CSharp::DefensiveStrategy

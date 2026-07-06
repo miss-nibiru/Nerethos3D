@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: Inquest
+  m_Name: HeavySentence
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
-  attackName: Inquest
-  inputPatterns: 0100000006000000
-  actionType: 1
-  baseDamage: 0
+  attackName: Heavy Sentence
+  inputPatterns: 030000000400000005000000
+  actionType: 0
+  attackStrategy: {fileID: 11400000, guid: bd70ce003277743f4a296e43f8b240d6, type: 2}
+  baseDamage: 20

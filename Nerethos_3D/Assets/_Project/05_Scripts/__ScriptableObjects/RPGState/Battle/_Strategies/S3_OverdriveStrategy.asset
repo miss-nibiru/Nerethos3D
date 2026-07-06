@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: ConfirmedSentence
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
-  attackName: Confirmed Sentence
-  inputPatterns: 030000000300000004000000
-  baseDamage: 15
+  m_Script: {fileID: 11500000, guid: 611bb809eab484f0aaef73b23ecc64f0, type: 3}
+  m_Name: S3_OverdriveStrategy
+  m_EditorClassIdentifier: Assembly-CSharp::OverdriveStrategy
