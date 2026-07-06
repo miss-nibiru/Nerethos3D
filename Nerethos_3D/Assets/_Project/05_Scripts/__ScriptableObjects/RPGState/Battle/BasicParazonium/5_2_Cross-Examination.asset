@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: Inquest
+  m_Name: 5_2_Cross-Examination
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
-  attackName: Inquest
-  inputPatterns: 0100000006000000
-  actionType: 1
-  attackStrategy: {fileID: 11400000, guid: 0449984c152304d529bfbfa813f983f7, type: 2}
-  baseDamage: 0
+  attackName: Cross-Examination
+  inputPatterns: 060000000200000004000000
+  actionType: 0
+  attackStrategy: {fileID: 11400000, guid: bd70ce003277743f4a296e43f8b240d6, type: 2}
+  canStartContinuation: 0
+  requiresPreviousAttack: 1
+  requiredPreviousAttack: {fileID: 11400000, guid: c3cfa9fc511c14afe900462f466bd596, type: 2}
+  baseDamage: 20

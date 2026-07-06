@@ -35,6 +35,10 @@ public class BattleManager : MonoBehaviour
     //5-ATTACK RESOLUTION STATE
     private PlayerAttackResolutionState _attackResolutionState;
     private EnemyTurnState _enemyTurnState;
+    private PlayerAttackCommand _pendingPlayerAttackCommand;
+    
+    private BattleMemory _battleMemory;
+    private bool _battleIsOver;
     
     public StateMachine StateMachine => stateMachine;
     public PlayerTurnController PlayerTurnController => playerTurnController;
@@ -42,6 +46,9 @@ public class BattleManager : MonoBehaviour
     public EnemyController EnemyController => enemyController;
     public BattleUIManager BattleUIManager => battleUIManager;
     public BattleInputManager BattleInputManager => inputManager;
+    public PlayerAttackCommand PendingPlayerAttackCommand => _pendingPlayerAttackCommand;
+    public bool BattleIsOver => _battleIsOver;
+    public BattleMemory BattleMemory => _battleMemory;
     
     //STATES CONSTRUCTORS
     public PlayerActionSelectState PlayerActionSelectState => _playerActionSelectState;
@@ -50,10 +57,11 @@ public class BattleManager : MonoBehaviour
     public PlayerAttackResolutionState AttackResolutionState => _attackResolutionState;
     public EnemyTurnState EnemyTurnState => _enemyTurnState;
     
-    private bool _battleIsOver;
 
     private void Start()
     {
+        _battleMemory = new BattleMemory();
+        
         _battleStartState = new BattleStartState();
         _battleStartState.Initialize(this);
         
@@ -98,18 +106,6 @@ public class BattleManager : MonoBehaviour
         stateMachine.CurrentState.MoveState(direction);
     }
     
-    /// <summary>
-    /// ignoring everything below for now but no touchy so no breaky
-    /// </summary>
-    // private void Start()
-    // {
-    //     SetTurnActionType(TurnActionType.ActionSelection); // start the battle with the player selecting an action to perform
-    //     _battleIsOver = false;
-    //     
-    //     Debug.Log("Battle started! Player's turn. Select an action to perform.");
-    //     
-    // }
-    
     public int GetCurrentPatternLength()
     {
         return playerTurnController.CurrentWeapon.MaxPatternLength;
@@ -118,20 +114,43 @@ public class BattleManager : MonoBehaviour
     
     public void ReceivedPattern(List<PlayerAttackData.InputActionType> submittedPattern)
     {
+        
         WeaponData currentWeapon = playerTurnController.CurrentWeapon;
         if (_battleIsOver) return;
         
         PlayerAttackData resolvedAction = currentWeapon.ResolveAction(submittedPattern);
         Debug.Log("Resolved Attack: " + resolvedAction.AttackName + " Damage: " + resolvedAction.BaseDamage);
-
-        if (resolvedAction.AttackStrategy == null) return;
-        resolvedAction.AttackStrategy.Execute(resolvedAction, this);
-
-        //add defense and override strategy missing
         
-        if (_battleIsOver) return;
-        Debug.Log("Player action resolved. Moving to attack resolution state.");
+        if (resolvedAction.RequiresPreviousAttack)
+        {
+            
+            bool hasRequiredPreviousAttack = BattleMemory.WasLastPlayerAction(resolvedAction.RequiredPreviousAttack);
+            if (!hasRequiredPreviousAttack)
+            {
+                Debug.Log(resolvedAction.AttackName + " requires " + resolvedAction.RequiredPreviousAttack.AttackName + " first. Using basic attack instead.");
+                resolvedAction = currentWeapon.BasicAttackPattern;
+            }
+            
+        }
+
+        if (resolvedAction.AttackStrategy == null) //connected to attack strategies
+        {
+            Debug.LogError(resolvedAction.AttackName + " has no attack strategy assigned.");
+            return;
+        }
+
+        // Creates the command -- PlayerAttackResolutionState executes
+        PlayerAttackCommand playerAttackCommand = new PlayerAttackCommand(resolvedAction, currentWeapon, submittedPattern);
+        SetPendingPlayerAttackCommand(playerAttackCommand);
+
+        Debug.Log("Pending player attack command set: " + playerAttackCommand.AttackData.AttackName);
         ChangeBattleState(AttackResolutionState);
+        
+    }
+    
+    public void SetPendingPlayerAttackCommand(PlayerAttackCommand command)
+    {
+        _pendingPlayerAttackCommand = command;
     }
 
     private void ResolvePlayerTurn()

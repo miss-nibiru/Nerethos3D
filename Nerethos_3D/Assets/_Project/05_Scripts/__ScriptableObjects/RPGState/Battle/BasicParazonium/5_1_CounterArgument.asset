@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: BasicAttack
+  m_Name: 5_1_CounterArgument
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
-  attackName: Basic Attack
-  inputPatterns: 
-  actionType: 0
-  attackStrategy: {fileID: 11400000, guid: 2a133eec2ed5444879fa129c51a34580, type: 2}
-  baseDamage: 2
+  attackName: Counter-Argument
+  inputPatterns: 0200000006000000
+  actionType: 1
+  attackStrategy: {fileID: 11400000, guid: 0449984c152304d529bfbfa813f983f7, type: 2}
+  canStartContinuation: 1
+  requiresPreviousAttack: 0
+  requiredPreviousAttack: {fileID: 0}
+  baseDamage: 0

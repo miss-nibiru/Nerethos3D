@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: MaterialEvidence
+  m_Name: 6_3_MaterialEvidence
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
   attackName: Material Evidence
   inputPatterns: 050000000300000006000000
   actionType: 1
   attackStrategy: {fileID: 11400000, guid: 0449984c152304d529bfbfa813f983f7, type: 2}
+  canStartContinuation: 0
+  requiresPreviousAttack: 1
+  requiredPreviousAttack: {fileID: 11400000, guid: 44ff4176cfde149a099cb375b3fc218e, type: 2}
   baseDamage: 0

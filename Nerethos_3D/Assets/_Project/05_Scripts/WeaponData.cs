@@ -22,6 +22,7 @@ public class WeaponData : ScriptableObject
     public string WeaponName => weaponName;
     public int WeaponLevel => weaponLevel;
     public int MaxPatternLength => maxPatternLength;
+    public PlayerAttackData BasicAttackPattern => basicAttackPattern;
     
     
     //does this weapon have an attack that matches the players input pattern?

@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: ConfirmedSentence
+  m_Name: 6_2_SubmittedEvidence
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
-  attackName: Confirmed Sentence
-  inputPatterns: 030000000300000004000000
-  actionType: 0
-  attackStrategy: {fileID: 11400000, guid: bd70ce003277743f4a296e43f8b240d6, type: 2}
-  baseDamage: 15
+  attackName: Submitted Evidence
+  inputPatterns: 010000000300000005000000
+  actionType: 1
+  attackStrategy: {fileID: 11400000, guid: 0449984c152304d529bfbfa813f983f7, type: 2}
+  canStartContinuation: 1
+  requiresPreviousAttack: 1
+  requiredPreviousAttack: {fileID: 11400000, guid: 30fee236c29b343ed97381651802de20, type: 2}
+  baseDamage: 0

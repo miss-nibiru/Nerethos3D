@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
+  m_Name: 1_1_EmeraldSeverance
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
+  attackName: Emerald Severance
+  inputPatterns: 0300000004000000
+  description: 'Facey steps forward and does a clean diagonal slash. End Pose: She
+    does not reset to idle. Grounded dual-stance. Center of gravity lowered. Damage
+    Low.'
+  effectDescription: Gain Guarded
+  alchemyDescription: "The motion feels slightly \u201Cout of phase\u201D. The blade
+    trail briefly lags behind the actual swing, leaving a secondary afterimage of
+    the slash that completes fractionally earlier than the real motion"
+  actionType: 0
+  attackStrategy: {fileID: 11400000, guid: bd70ce003277743f4a296e43f8b240d6, type: 2}
+  canStartContinuation: 1
+  requiresPreviousAttack: 0
+  requiredPreviousAttack: {fileID: 0}
+  baseDamage: 10

@@ -13,8 +13,25 @@ public class PlayerAttackResolutionState : IBattleState
     
     public void EnterState()
     {
+        
         Debug.Log("Resolving player attack");
+        PlayerAttackCommand playerAttackCommand = BattleManager.PendingPlayerAttackCommand;
+
+        if (playerAttackCommand == null)
+        {
+            BattleManager.ChangeBattleState(BattleManager.EnemyTurnState);
+            return;
+        }
+
+        playerAttackCommand.Execute(BattleManager);
+        BattleManager.BattleMemory.StorePlayerAttackCommand(playerAttackCommand);
+        Debug.Log("Stored last player attack command: " + playerAttackCommand.AttackData.AttackName);
+
+        BattleManager.SetPendingPlayerAttackCommand(null);
+
+        if (BattleManager.BattleIsOver) return;
         BattleManager.ChangeBattleState(BattleManager.EnemyTurnState);
+        
     }
     
     public void ConfirmState()

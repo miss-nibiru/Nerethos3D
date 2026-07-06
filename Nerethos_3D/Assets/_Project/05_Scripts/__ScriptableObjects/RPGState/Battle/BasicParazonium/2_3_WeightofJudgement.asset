@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e98cc7ee3d2a4baaa19946e75825ef0, type: 3}
-  m_Name: JudgesVerdict
+  m_Name: 2_3_WeightofJudgement
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAttackData
-  attackName: Judges Verdict
-  inputPatterns: 050000000300000004000000
+  attackName: Weight of Judgement
+  inputPatterns: 04000000030000000500000005000000
   actionType: 0
   attackStrategy: {fileID: 11400000, guid: bd70ce003277743f4a296e43f8b240d6, type: 2}
-  baseDamage: 25
+  canStartContinuation: 1
+  requiresPreviousAttack: 1
+  requiredPreviousAttack: {fileID: 11400000, guid: 3d3f0a96ba79649ebb054722e4a8498a, type: 2}
+  baseDamage: 35
