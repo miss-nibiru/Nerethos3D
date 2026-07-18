@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &332944850862085564
 Transform:
@@ -48,7 +48,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &768407379216132188
 Transform:
@@ -134,9 +134,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8386959242657383723, guid: 7936e32b8b2254b9cacd206196f821ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -4482195791027793113, guid: 7936e32b8b2254b9cacd206196f821ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7936e32b8b2254b9cacd206196f821ef, type: 3}
       propertyPath: m_Name
       value: gridwalkway_support
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7936e32b8b2254b9cacd206196f821ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5488531880406429654, guid: 7936e32b8b2254b9cacd206196f821ef, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6523121793406302906
 Transform:
@@ -80,13 +80,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7396370556442609229, guid: 5eebe156a8ff942c9a8a6e5831c9e5fa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -5565435249922253155, guid: 5eebe156a8ff942c9a8a6e5831c9e5fa, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6886ea93582254edaa86975471d69014, type: 2}
+    - target: {fileID: -1295879377799036987, guid: 5eebe156a8ff942c9a8a6e5831c9e5fa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5eebe156a8ff942c9a8a6e5831c9e5fa, type: 3}
       propertyPath: m_Name
       value: pipe_bendconnection_90degrees_pipe_2m
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5eebe156a8ff942c9a8a6e5831c9e5fa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
