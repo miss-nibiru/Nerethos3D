@@ -35,4 +35,11 @@ public class CombatTargetPointFeedback : MonoBehaviour
         baseSprite.material = selectedMaterial;
     }
     
+    public void HideTargetVisual()
+    {
+        if (!baseSprite) return;
+
+        baseSprite.enabled = false;
+    }
+    
 }

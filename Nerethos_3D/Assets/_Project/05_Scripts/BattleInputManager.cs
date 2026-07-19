@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-using TMPro;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 /// <summary>
@@ -10,20 +10,26 @@ using UnityEngine.InputSystem;
 
 public class BattleInputManager : MonoBehaviour
 {
+    [Header("Pattern Icons")]
+    [SerializeField] private Image[] inputSlots = new Image[5];
+
+    [SerializeField] private Sprite arrowIcon;
+    [SerializeField] private Sprite aIcon;
+    [SerializeField] private Sprite sIcon;
+    [SerializeField] private Sprite zIcon;
+    [SerializeField] private Sprite xIcon;
     
     private NerethosInputActions _inputActions; // store the input actions
-
-    [SerializeField] private TMP_Text currentPatternText;
     [SerializeField] private BattleManager battleManager; // reference to battle manager to send pattern to it
+    
     private bool _canReceivePatternInput;
-
-    private List<PlayerAttackData.InputActionType>
-        _currentPattern = new List<PlayerAttackData.InputActionType>(); // create a list of patterns to store in memory
+    private List<PlayerAttackData.InputActionType> _currentPattern = new List<PlayerAttackData.InputActionType>(); // create a list of patterns to store in memory
 
 
     private void Awake()
     {
         InitializeInputActions();
+        RefreshPatternIcons();
     }
 
     private void OnEnable()
@@ -91,7 +97,7 @@ public class BattleInputManager : MonoBehaviour
     private void ClearPattern(InputAction.CallbackContext context)
     {
         _currentPattern.Clear();
-        currentPatternText.text = "Pattern: ";
+        RefreshPatternIcons();
         Debug.Log("Current pattern cleared");
     }
 
@@ -107,7 +113,7 @@ public class BattleInputManager : MonoBehaviour
         battleManager.ReceivedPattern(submittedPattern);
 
         _currentPattern.Clear();
-        currentPatternText.text = "Pattern: ";
+        RefreshPatternIcons();
     }
 
     private void OnRightPressed(InputAction.CallbackContext ctx)
@@ -164,9 +170,48 @@ public class BattleInputManager : MonoBehaviour
         }
 
         _currentPattern.Add(inputName);
-        currentPatternText.text = "Pattern: " + string.Join(" + ", _currentPattern);
+        RefreshPatternIcons();
         Debug.Log("Current pattern: " + string.Join(" + ", _currentPattern));
 
+    }
+    
+    private void RefreshPatternIcons()
+    {
+        for (int i = 0; i < inputSlots.Length; i++)
+        {
+            if (inputSlots[i] == null) continue;
+
+            bool hasInput = i < _currentPattern.Count;
+            inputSlots[i].gameObject.SetActive(hasInput);
+
+            if (!hasInput) continue;
+            PlayerAttackData.InputActionType input = _currentPattern[i];
+            inputSlots[i].sprite = GetInputIcon(input);
+            inputSlots[i].rectTransform.localRotation = Quaternion.Euler(0f, 0f, GetInputRotation(input));
+        }
+    }
+
+    private Sprite GetInputIcon(PlayerAttackData.InputActionType input)
+    {
+        switch (input)
+        {
+            case PlayerAttackData.InputActionType.A: return aIcon;
+            case PlayerAttackData.InputActionType.S: return sIcon;
+            case PlayerAttackData.InputActionType.Z: return zIcon;
+            case PlayerAttackData.InputActionType.X: return xIcon;
+            default: return arrowIcon;
+        }
+    }
+
+    private float GetInputRotation(PlayerAttackData.InputActionType input)
+    {
+        switch (input)
+        {
+            case PlayerAttackData.InputActionType.Right: return -90f;
+            case PlayerAttackData.InputActionType.Down: return 180f;
+            case PlayerAttackData.InputActionType.Left: return 90f;
+            default: return 0f;
+        }
     }
     
 

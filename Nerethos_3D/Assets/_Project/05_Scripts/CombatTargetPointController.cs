@@ -104,6 +104,7 @@ public class CombatTargetPointController : MonoBehaviour
     private void BreakTargetPoint()
     {
         _isBroken = true;
+        if (_pointFeedback != null) _pointFeedback.HideTargetVisual();
         Debug.Log(pointData.TargetPointName + " has been broken.");
 
         // To be implemented triggering debuffs, buffs, spawning of the boss cores, special things

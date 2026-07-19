@@ -12,7 +12,7 @@ public class TargetInfoUI : MonoBehaviour
     [SerializeField] private Image pointHealthFill;
 
     [Header("Position")]
-    [SerializeField] private Vector2 screenOffset = new Vector2(-300f, 0f);
+    [SerializeField] private Vector2 screenOffset = new Vector2(-200f, 0f);
 
     private RectTransform _panelRect;
     private RectTransform _canvasRect;
