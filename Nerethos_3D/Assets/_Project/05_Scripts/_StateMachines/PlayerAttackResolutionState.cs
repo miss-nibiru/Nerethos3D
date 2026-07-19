@@ -24,6 +24,7 @@ public class PlayerAttackResolutionState : IBattleState
         }
 
         playerAttackCommand.Execute(BattleManager);
+        BattleManager.BattleUIManager.UpdateHealthBars();
         BattleManager.BattleMemory.StorePlayerAttackCommand(playerAttackCommand);
         Debug.Log("Stored last player attack command: " + playerAttackCommand.AttackData.AttackName);
 

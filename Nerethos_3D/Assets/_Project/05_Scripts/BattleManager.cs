@@ -12,6 +12,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private BattleInputManager inputManager;
     [SerializeField] private BattleUIManager battleUIManager;
     [SerializeField] private StateMachine stateMachine;
+    [SerializeField] private TargetInfoUI targetInfoUI;
     
     [Header("Player States")]
     [SerializeField] private PlayerTurnController playerTurnController;
@@ -49,6 +50,7 @@ public class BattleManager : MonoBehaviour
     public PlayerAttackCommand PendingPlayerAttackCommand => _pendingPlayerAttackCommand;
     public bool BattleIsOver => _battleIsOver;
     public BattleMemory BattleMemory => _battleMemory;
+    public TargetInfoUI TargetInfoUI => targetInfoUI;
     
     //STATES CONSTRUCTORS
     public PlayerActionSelectState PlayerActionSelectState => _playerActionSelectState;
@@ -167,16 +169,16 @@ public class BattleManager : MonoBehaviour
     {
         
         _battleIsOver = true;
-        Debug.Log("Player has won the battle!");
+        battleUIManager.ShowVictory();
         
     }
 
     public void LoseBattle()
     {
         _battleIsOver = true;
-        Debug.Log("Player has lost the battle!");
+        battleUIManager.ShowDefeat();
         
-        //still need to add win and lose wrap up 
+        
     }
 
 

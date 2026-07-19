@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// This one lsitens for navigation buttons and confirm ui
 /// </summary>
 
 public class BattleUIManager : MonoBehaviour
+
 {
     public enum ActionType
     {
@@ -15,14 +18,20 @@ public class BattleUIManager : MonoBehaviour
         Escape
     }
 
+    [SerializeField] private BattleManager battleManager;
     [SerializeField] private GameObject[] actionSelectionUI;
     [SerializeField] private ActionType[] actionType;
-    private int _selectedActionIndex;
+   
+    [Header("Battle Result")]
+    [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private GameObject defeatPanel;
     
+    [Header("Health Bars")]
+    [SerializeField] private Image playerHealthFill;
+    [SerializeField] private Image enemyHealthFill;
     public ActionType SelectedAction => actionType[_selectedActionIndex];
-    
     private NerethosInputActions _inputActions;
-    [SerializeField] private BattleManager battleManager;
+    private int _selectedActionIndex;
 
     private void Awake()
     {
@@ -76,8 +85,6 @@ public class BattleUIManager : MonoBehaviour
         //here we start dividing states i think
         
         battleManager.MoveBattleState(1);
-        
-
 
     }
 
@@ -90,15 +97,9 @@ public class BattleUIManager : MonoBehaviour
     {
         for (int i = 0; i < actionSelectionUI.Length; i++)
         {
-            if (i == _selectedActionIndex)
-            {
-                actionSelectionUI[i].transform.localScale = Vector3.one * (float)1.2; // scale up the selected action
-            }
-
-            else
-            {
-                actionSelectionUI[i].transform.localScale = Vector3.one;
-            }
+            if (i == _selectedActionIndex) actionSelectionUI[i].transform.localScale = Vector3.one * (float)1.2; // scale up the selected action
+            else actionSelectionUI[i].transform.localScale = Vector3.one;
+            
         }
     }
 
@@ -107,28 +108,53 @@ public class BattleUIManager : MonoBehaviour
 
         _selectedActionIndex += direction;
 
-        if (_selectedActionIndex < 0)
-        {
-            _selectedActionIndex = actionSelectionUI.Length - 1;
-        }
+        if (_selectedActionIndex < 0) _selectedActionIndex = actionSelectionUI.Length - 1;
         
-        if (_selectedActionIndex >= actionSelectionUI.Length)
-        { 
-            _selectedActionIndex = 0;
-        }
-        
+        if (_selectedActionIndex >= actionSelectionUI.Length) _selectedActionIndex = 0;
         UpdateActionUI();
-        
         Debug.Log("Selected action index: " + _selectedActionIndex);
 
     }
 
     public void SetActionSelectionUIActive(bool isActive)
     {
-        for (int i = 0; i < actionSelectionUI.Length; i++)
-        {
-            actionSelectionUI[i].SetActive(isActive);
-        }
+        for (int i = 0; i < actionSelectionUI.Length; i++) actionSelectionUI[i].SetActive(isActive);
+        
     }
+    
+    public void UpdateHealthBars()
+    {
+        float playerHealthPercent =
+            (float)battleManager.PlayerController.CurrentHealth /
+            battleManager.PlayerController.MaxHealth;
+
+        float enemyHealthPercent =
+            (float)battleManager.EnemyController.CurrentHealth /
+            battleManager.EnemyController.MaxHealth;
+
+        playerHealthFill.fillAmount = Mathf.Clamp01(playerHealthPercent);
+        enemyHealthFill.fillAmount = Mathf.Clamp01(enemyHealthPercent);
+    }
+    
+    public void ShowVictory()
+    {
+        SetActionSelectionUIActive(false);
+        victoryPanel.SetActive(true);
+        defeatPanel.SetActive(false);
+    }
+
+    public void ShowDefeat()
+    {
+        SetActionSelectionUIActive(false);
+        victoryPanel.SetActive(false);
+        defeatPanel.SetActive(true);
+    }
+
+    public void RestartBattle()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    
 
 }

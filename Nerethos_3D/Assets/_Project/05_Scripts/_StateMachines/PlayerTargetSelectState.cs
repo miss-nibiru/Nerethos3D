@@ -15,7 +15,9 @@ public class PlayerTargetSelectState : IBattleState
     public void EnterState()
     {
         
-        Debug.Log("Choose the target you wanna plow");
+        BattleManager.TargetInfoUI.ShowTarget(
+            BattleManager.EnemyController.SelectedTargetPoint
+        );
         
         
     }
@@ -37,6 +39,7 @@ public class PlayerTargetSelectState : IBattleState
     {
         
         Debug.Log("Exited player target selection > going into pattern stage");
+        BattleManager.TargetInfoUI.Hide();
         
     }
     
@@ -44,6 +47,9 @@ public class PlayerTargetSelectState : IBattleState
     {
         
         _battleManager.EnemyController.SelectPoint(direction);
+        BattleManager.TargetInfoUI.ShowTarget(
+            BattleManager.EnemyController.SelectedTargetPoint
+        );
     
     }
 

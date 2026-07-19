@@ -25,6 +25,7 @@ public class EnemyTurnState : IBattleState
         }
 
         BattleManager.PlayerController.DamageRandomTargetPoint(damageAmount);
+        BattleManager.BattleUIManager.UpdateHealthBars();
        
         if (BattleManager.PlayerController.IsDead)
         {

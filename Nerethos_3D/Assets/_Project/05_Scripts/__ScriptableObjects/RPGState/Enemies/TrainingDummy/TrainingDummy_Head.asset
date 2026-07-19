@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fdb2181f9e54d99b26754f7aaa5d93, type: 3}
   m_Name: TrainingDummy_Head
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTargetPointData
-  targetPointName: TrainingDummy_Head
+  targetPointName: Head
   targetPointLocation: 0
   isCore: 0
   startsHidden: 0
