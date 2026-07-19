@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// This one lsitens for navigation buttons and confirm ui
@@ -29,6 +30,11 @@ public class BattleUIManager : MonoBehaviour
     [Header("Health Bars")]
     [SerializeField] private Image playerHealthFill;
     [SerializeField] private Image enemyHealthFill;
+    
+    [Header("Attack Announcement")]
+    [SerializeField] private GameObject attackAnnouncementUI;
+    [SerializeField] private TMP_Text attackAnnouncementText;
+    
     public ActionType SelectedAction => actionType[_selectedActionIndex];
     private NerethosInputActions _inputActions;
     private int _selectedActionIndex;
@@ -155,6 +161,15 @@ public class BattleUIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
-    
+    public void ShowAttackAnnouncement(string attackName)
+    {
+        attackAnnouncementText.text = attackName;
+        attackAnnouncementUI.SetActive(true);
+    }
+
+    public void HideAttackAnnouncement()
+    {
+        attackAnnouncementUI.SetActive(false);
+    }
 
 }

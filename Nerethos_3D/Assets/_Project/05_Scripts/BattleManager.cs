@@ -14,6 +14,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private StateMachine stateMachine;
     [SerializeField] private TargetInfoUI targetInfoUI;
     
+    
     [Header("Player States")]
     [SerializeField] private PlayerTurnController playerTurnController;
     [SerializeField] private PlayerCombatantController playerController;
@@ -37,6 +38,7 @@ public class BattleManager : MonoBehaviour
     private PlayerAttackResolutionState _attackResolutionState;
     private EnemyTurnState _enemyTurnState;
     private PlayerAttackCommand _pendingPlayerAttackCommand;
+    private PlayerAttackAnnouncementState _playerAttackAnnouncementState;
     
     private BattleMemory _battleMemory;
     private bool _battleIsOver;
@@ -58,6 +60,7 @@ public class BattleManager : MonoBehaviour
     public PlayerPatternState PlayerPatternState => _playerPatternState;
     public PlayerAttackResolutionState AttackResolutionState => _attackResolutionState;
     public EnemyTurnState EnemyTurnState => _enemyTurnState;
+    public PlayerAttackAnnouncementState PlayerAttackAnnouncementState => _playerAttackAnnouncementState;
     
 
     private void Start()
@@ -81,6 +84,9 @@ public class BattleManager : MonoBehaviour
         
         _enemyTurnState = new EnemyTurnState();
         _enemyTurnState.Initialize(this);
+
+        _playerAttackAnnouncementState = new PlayerAttackAnnouncementState();
+        _playerAttackAnnouncementState.Initialize(this);
         
         ChangeBattleState(_battleStartState);
 
@@ -146,9 +152,9 @@ public class BattleManager : MonoBehaviour
         // Creates the command -- PlayerAttackResolutionState executes
         PlayerAttackCommand playerAttackCommand = new PlayerAttackCommand(resolvedAction, currentWeapon, submittedPattern);
         SetPendingPlayerAttackCommand(playerAttackCommand);
-
+        
         Debug.Log("Pending player attack command set: " + playerAttackCommand.AttackData.AttackName);
-        ChangeBattleState(AttackResolutionState);
+        ChangeBattleState(PlayerAttackAnnouncementState);
         
     }
     
