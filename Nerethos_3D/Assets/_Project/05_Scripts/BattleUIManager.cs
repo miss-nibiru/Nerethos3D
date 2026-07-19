@@ -35,6 +35,9 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] private GameObject attackAnnouncementUI;
     [SerializeField] private TMP_Text attackAnnouncementText;
     
+    [Header("Restrictions")]
+    [SerializeField] private GameObject notAvailablePanel;
+    
     public ActionType SelectedAction => actionType[_selectedActionIndex];
     private NerethosInputActions _inputActions;
     private int _selectedActionIndex;
@@ -42,6 +45,7 @@ public class BattleUIManager : MonoBehaviour
     private void Awake()
     {
         InitializeInputActions();
+        if (!notAvailablePanel) notAvailablePanel.SetActive(false);
     }
 
     private void OnEnable()
@@ -170,6 +174,16 @@ public class BattleUIManager : MonoBehaviour
     public void HideAttackAnnouncement()
     {
         attackAnnouncementUI.SetActive(false);
+    }
+    
+    public void ShowNotAvailable()
+    {
+        notAvailablePanel.SetActive(true);
+    }
+
+    public void HideNotAvailable()
+    {
+        notAvailablePanel.SetActive(false);
     }
 
 }

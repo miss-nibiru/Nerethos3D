@@ -23,9 +23,15 @@ public class PlayerActionSelectState : IBattleState
     
     public void ConfirmState()
     {
-        Debug.Log("Confirmed, moving into target selection");
-        _battleManager.ChangeBattleState(_battleManager.PlayerTargetSelectState);
-    
+        BattleUIManager.ActionType selectedAction = _battleManager.BattleUIManager.SelectedAction;
+
+        if (selectedAction == BattleUIManager.ActionType.Attack)
+        {
+            _battleManager.ChangeBattleState(_battleManager.PlayerTargetSelectState);
+            return;
+        }
+        
+        _battleManager.BattleUIManager.ShowNotAvailable();
     }
     
     

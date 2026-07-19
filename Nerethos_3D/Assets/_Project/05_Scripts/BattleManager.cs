@@ -39,6 +39,8 @@ public class BattleManager : MonoBehaviour
     private EnemyTurnState _enemyTurnState;
     private PlayerAttackCommand _pendingPlayerAttackCommand;
     private PlayerAttackAnnouncementState _playerAttackAnnouncementState;
+    private EnemyAttackAnnouncementState _enemyAttackAnnouncementState;
+    private EnemyAttackData _pendingEnemyAttack;
     
     private BattleMemory _battleMemory;
     private bool _battleIsOver;
@@ -54,13 +56,17 @@ public class BattleManager : MonoBehaviour
     public BattleMemory BattleMemory => _battleMemory;
     public TargetInfoUI TargetInfoUI => targetInfoUI;
     
+    
     //STATES CONSTRUCTORS
     public PlayerActionSelectState PlayerActionSelectState => _playerActionSelectState;
     public PlayerTargetSelectState PlayerTargetSelectState => _playerTargetSelectState;
     public PlayerPatternState PlayerPatternState => _playerPatternState;
     public PlayerAttackResolutionState AttackResolutionState => _attackResolutionState;
     public EnemyTurnState EnemyTurnState => _enemyTurnState;
+    public EnemyAttackData PendingEnemyAttack => _pendingEnemyAttack;
     public PlayerAttackAnnouncementState PlayerAttackAnnouncementState => _playerAttackAnnouncementState;
+    public EnemyAttackAnnouncementState EnemyAttackAnnouncementState =>
+        _enemyAttackAnnouncementState;
     
 
     private void Start()
@@ -81,6 +87,9 @@ public class BattleManager : MonoBehaviour
 
         _attackResolutionState = new PlayerAttackResolutionState();
         _attackResolutionState.Initialize(this);
+
+        _enemyAttackAnnouncementState = new EnemyAttackAnnouncementState();
+        _enemyAttackAnnouncementState.Initialize(this);
         
         _enemyTurnState = new EnemyTurnState();
         _enemyTurnState.Initialize(this);
@@ -161,6 +170,11 @@ public class BattleManager : MonoBehaviour
     public void SetPendingPlayerAttackCommand(PlayerAttackCommand command)
     {
         _pendingPlayerAttackCommand = command;
+    }
+    
+    public void SetPendingEnemyAttack(EnemyAttackData attack)
+    {
+        _pendingEnemyAttack = attack;
     }
 
     private void ResolvePlayerTurn()

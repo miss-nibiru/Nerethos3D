@@ -15,27 +15,32 @@ public class EnemyTurnState : IBattleState
     public void EnterState()
     {
         Debug.Log("Starting Enemy turn now");
-        EnemyAttackData chosenAttack = BattleManager.EnemyController.ChooseRandomAttack();
+        EnemyAttackData chosenAttack = BattleManager.PendingEnemyAttack;
         int damageAmount = BattleManager.EnemyController.AttackPower;
-        
+
         if (chosenAttack != null)
         {
             damageAmount = chosenAttack.BaseDamage;
-            Debug.Log("Enemy has chosen " + chosenAttack.AttackName);
+            Debug.Log("Enemy is using " + chosenAttack.AttackName);
         }
 
-        BattleManager.PlayerController.DamageRandomTargetPoint(damageAmount);
+        BattleManager.PlayerController.DamageRandomTargetPoint(
+            damageAmount
+        );
+
         BattleManager.BattleUIManager.UpdateHealthBars();
-       
+        BattleManager.SetPendingEnemyAttack(null);
+
         if (BattleManager.PlayerController.IsDead)
         {
-            Debug.Log ("player is dead");
+            Debug.Log("Player is dead");
             BattleManager.LoseBattle();
             return;
         }
-        
-        BattleManager.ChangeBattleState(BattleManager.PlayerActionSelectState);
 
+        BattleManager.ChangeBattleState(
+            BattleManager.PlayerActionSelectState
+        );
     }
     
     public void ConfirmState()

@@ -19,7 +19,9 @@ public class PlayerAttackResolutionState : IBattleState
 
         if (playerAttackCommand == null)
         {
-            BattleManager.ChangeBattleState(BattleManager.EnemyTurnState);
+            BattleManager.ChangeBattleState(
+                BattleManager.EnemyAttackAnnouncementState
+            );
             return;
         }
 
@@ -31,7 +33,9 @@ public class PlayerAttackResolutionState : IBattleState
         BattleManager.SetPendingPlayerAttackCommand(null);
 
         if (BattleManager.BattleIsOver) return;
-        BattleManager.ChangeBattleState(BattleManager.EnemyTurnState);
+        BattleManager.ChangeBattleState(
+            BattleManager.EnemyAttackAnnouncementState
+        );
         
     }
     
