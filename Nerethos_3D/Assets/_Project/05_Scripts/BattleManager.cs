@@ -140,7 +140,9 @@ public class BattleManager : MonoBehaviour
             Debug.LogError(resolvedAction.AttackName + " has no attack strategy assigned.");
             return;
         }
-
+        
+        if (resolvedAction != currentWeapon.BasicAttackPattern) PatternDiscovery.Discover(resolvedAction);
+        
         // Creates the command -- PlayerAttackResolutionState executes
         PlayerAttackCommand playerAttackCommand = new PlayerAttackCommand(resolvedAction, currentWeapon, submittedPattern);
         SetPendingPlayerAttackCommand(playerAttackCommand);

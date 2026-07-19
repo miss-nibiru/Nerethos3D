@@ -49,6 +49,9 @@ public class PlayerAttackData : ScriptableObject
     [Header("Attack Base Stats")]
     [SerializeField] private int baseDamage;
     
+    [Header("Discovery")]
+    [SerializeField] private bool startsDiscovered;
+    
     public string AttackName => attackName;
     public List<InputActionType> InputPatterns => inputPatterns;
     public WeaponActionType ActionType => actionType;
@@ -62,4 +65,5 @@ public class PlayerAttackData : ScriptableObject
     public string Description => description;
     public string EffectDescription => effectDescription;
     public string AlchemyDescription => alchemyDescription;
+    public bool StartsDiscovered => startsDiscovered;
 }

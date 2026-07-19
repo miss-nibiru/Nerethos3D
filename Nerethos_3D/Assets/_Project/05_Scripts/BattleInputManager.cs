@@ -83,6 +83,10 @@ public class BattleInputManager : MonoBehaviour
     
     public void EnablePatternInput()
     {
+        gameObject.SetActive(true);
+        _currentPattern.Clear();
+        RefreshPatternIcons();
+
         _canReceivePatternInput = true;
         Debug.Log("Pattern input enabled.");
     }
@@ -90,6 +94,10 @@ public class BattleInputManager : MonoBehaviour
     public void DisablePatternInput()
     {
         _canReceivePatternInput = false;
+        _currentPattern.Clear();
+        RefreshPatternIcons();
+
+        gameObject.SetActive(false);
         Debug.Log("Pattern input disabled.");
     }
 

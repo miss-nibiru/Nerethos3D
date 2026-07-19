@@ -27,3 +27,4 @@ MonoBehaviour:
   requiresPreviousAttack: 0
   requiredPreviousAttack: {fileID: 0}
   baseDamage: 10
+  startsDiscovered: 1
