@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 862839bf6050d47c4bc3f62358ba1c74, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: ce178ed3265ac4595a498f3a7cc85c44, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -39695,7 +39695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59030,6 +59030,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 92926682}
     m_Modifications:
+    - target: {fileID: 1449413601513801080, guid: 8f0064e6fe0c9476190b50cf7be10e75, type: 3}
+      propertyPath: m_Name
+      value: OutColumn_18m_Root
+      objectReference: {fileID: 0}
     - target: {fileID: 6963210366946182232, guid: 8f0064e6fe0c9476190b50cf7be10e75, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.25
@@ -59081,10 +59085,6 @@ PrefabInstance:
     - target: {fileID: 6963210366946182232, guid: 8f0064e6fe0c9476190b50cf7be10e75, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1449413601513801080, guid: 8f0064e6fe0c9476190b50cf7be10e75, type: 3}
-      propertyPath: m_Name
-      value: OutColumn_18m_Root
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -80146,7 +80146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1629389582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87674,7 +87674,7 @@ MonoBehaviour:
   lowestSubdivLevelOverride: 0
   highestSubdivLevelOverride: 7
   overridesSubdivLevels: 0
-  mightNeedRebaking: 0
+  mightNeedRebaking: 1
   cachedTransform:
     e00: 1
     e01: 0
@@ -89706,7 +89706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1816840176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92893,8 +92893,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83d2f7ae04ab6f4f99b0d85377be998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.ProbeVolumePerSceneData
-  serializedBakingSet: {fileID: 11400000, guid: 6a516fa2e1983480db26469cb25833ed, type: 2}
-  sceneGUID: 99c9720ab356a0642a771bea13969a05
+  serializedBakingSet: {fileID: 0}
+  sceneGUID: ff8df28b477874fdb8950da551f06cb3
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
   obsoleteCellSupportDataAsset: {fileID: 0}
@@ -102513,10 +102513,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 603278127}
     m_Modifications:
-    - target: {fileID: 6572906473672200771, guid: 92530f95e8fcc43e59149108836f186f, type: 3}
-      propertyPath: m_Name
-      value: GridWalkway_Support (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 332944850862085564, guid: 92530f95e8fcc43e59149108836f186f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.000015
@@ -102556,6 +102552,10 @@ PrefabInstance:
     - target: {fileID: 332944850862085564, guid: 92530f95e8fcc43e59149108836f186f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572906473672200771, guid: 92530f95e8fcc43e59149108836f186f, type: 3}
+      propertyPath: m_Name
+      value: GridWalkway_Support (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
