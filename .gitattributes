@@ -13,3 +13,4 @@
 *.mov filter=lfs diff=lfs merge=lfs -text
 *.unitypackage filter=lfs diff=lfs merge=lfs -text
 Nerethos_3D/Assets/_Project/01_Scenes/Stronghold/*.bytes filter=lfs diff=lfs merge=lfs -text
+*.bytes filter=lfs diff=lfs merge=lfs -text
