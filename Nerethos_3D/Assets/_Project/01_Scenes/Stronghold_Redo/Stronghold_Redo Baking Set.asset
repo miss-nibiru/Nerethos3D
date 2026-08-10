@@ -1912,11 +1912,11 @@ MonoBehaviour:
         hasOnlyBiggerBricks: 0
     - position: {x: -1, y: 0, z: -1}
       index: 381
-      probeCount: 101504
+      probeCount: 101184
       minSubdiv: 0
       indexChunkCount: 91
       shChunkCount: 13
-      bricksCount: 1586
+      bricksCount: 1581
       indirectionEntryInfo:
       - positionInBricks: {x: -27, y: 0, z: -27}
         minSubdiv: 0
@@ -1926,11 +1926,11 @@ MonoBehaviour:
         hasOnlyBiggerBricks: 0
     - position: {x: -1, y: 0, z: 0}
       index: 441
-      probeCount: 55488
+      probeCount: 56256
       minSubdiv: 0
       indexChunkCount: 91
       shChunkCount: 7
-      bricksCount: 867
+      bricksCount: 879
       indirectionEntryInfo:
       - positionInBricks: {x: -27, y: 0, z: 0}
         minSubdiv: 0
@@ -1940,11 +1940,11 @@ MonoBehaviour:
         hasOnlyBiggerBricks: 0
     - position: {x: -1, y: 0, z: 1}
       index: 501
-      probeCount: 768
+      probeCount: 1088
       minSubdiv: 0
       indexChunkCount: 91
       shChunkCount: 1
-      bricksCount: 12
+      bricksCount: 17
       indirectionEntryInfo:
       - positionInBricks: {x: -27, y: 0, z: 27}
         minSubdiv: 0
@@ -2276,11 +2276,11 @@ MonoBehaviour:
         hasOnlyBiggerBricks: 0
     - position: {x: 0, y: 0, z: 0}
       index: 442
-      probeCount: 68480
+      probeCount: 68672
       minSubdiv: 0
       indexChunkCount: 91
       shChunkCount: 9
-      bricksCount: 1070
+      bricksCount: 1073
       indirectionEntryInfo:
       - positionInBricks: {x: 0, y: 0, z: 0}
         minSubdiv: 0
@@ -2290,11 +2290,11 @@ MonoBehaviour:
         hasOnlyBiggerBricks: 0
     - position: {x: 0, y: 0, z: 1}
       index: 502
-      probeCount: 832
+      probeCount: 1088
       minSubdiv: 0
       indexChunkCount: 91
       shChunkCount: 1
-      bricksCount: 13
+      bricksCount: 17
       indirectionEntryInfo:
       - positionInBricks: {x: 0, y: 0, z: 27}
         minSubdiv: 0
@@ -4783,7 +4783,7 @@ MonoBehaviour:
     m_Keys:
     - Default
     m_Values:
-    - sceneHash: 536448735
+    - sceneHash: 1035185887
       cellDataAsset:
         m_AssetGUID: 8c85225127fd444189adeb68029526ea
         m_StreamableAssetPath: APVStreamingAssets/750fa1ca4214c41c7bcca7187d5a94ab/8c85225127fd444189adeb68029526ea.bytes
@@ -6852,328 +6852,328 @@ MonoBehaviour:
       - offset: 1863024
         elementCount: 410
       - offset: 1869584
-        elementCount: 1586
-      - offset: 1894960
-        elementCount: 867
-      - offset: 1908832
-        elementCount: 12
-      - offset: 1909024
+        elementCount: 1581
+      - offset: 1894880
+        elementCount: 879
+      - offset: 1908944
+        elementCount: 17
+      - offset: 1909216
         elementCount: 116
-      - offset: 1910880
+      - offset: 1911072
         elementCount: 1554
-      - offset: 1935744
+      - offset: 1935936
         elementCount: 1638
-      - offset: 1961952
+      - offset: 1962144
         elementCount: 1602
-      - offset: 1987584
+      - offset: 1987776
         elementCount: 86
-      - offset: 1988960
+      - offset: 1989152
         elementCount: 292
-      - offset: 1993632
+      - offset: 1993824
         elementCount: 1028
-      - offset: 2010080
+      - offset: 2010272
         elementCount: 41
-      - offset: 2010736
+      - offset: 2010928
         elementCount: 225
-      - offset: 2014336
+      - offset: 2014528
         elementCount: 1112
-      - offset: 2032128
+      - offset: 2032320
         elementCount: 1558
-      - offset: 2057056
+      - offset: 2057248
         elementCount: 1576
-      - offset: 2082272
+      - offset: 2082464
         elementCount: 1563
-      - offset: 2107280
+      - offset: 2107472
         elementCount: 1549
-      - offset: 2132064
+      - offset: 2132256
         elementCount: 1120
-      - offset: 2149984
+      - offset: 2150176
         elementCount: 6
-      - offset: 2150080
+      - offset: 2150272
         elementCount: 111
-      - offset: 2151856
+      - offset: 2152048
         elementCount: 468
-      - offset: 2159344
+      - offset: 2159536
         elementCount: 1602
-      - offset: 2184976
+      - offset: 2185168
         elementCount: 1440
-      - offset: 2208016
+      - offset: 2208208
         elementCount: 424
-      - offset: 2214800
+      - offset: 2214992
         elementCount: 536
-      - offset: 2223376
+      - offset: 2223568
         elementCount: 2764
-      - offset: 2267600
-        elementCount: 1070
-      - offset: 2284720
-        elementCount: 13
-      - offset: 2284928
+      - offset: 2267792
+        elementCount: 1073
+      - offset: 2284960
+        elementCount: 17
+      - offset: 2285232
         elementCount: 230
-      - offset: 2288608
+      - offset: 2288912
         elementCount: 1652
-      - offset: 2315040
+      - offset: 2315344
         elementCount: 1717
-      - offset: 2342512
+      - offset: 2342816
         elementCount: 1704
-      - offset: 2369776
+      - offset: 2370080
         elementCount: 268
-      - offset: 2374064
+      - offset: 2374368
         elementCount: 246
-      - offset: 2378000
+      - offset: 2378304
         elementCount: 347
-      - offset: 2383552
+      - offset: 2383856
         elementCount: 16
-      - offset: 2383808
+      - offset: 2384112
         elementCount: 1205
-      - offset: 2403088
+      - offset: 2403392
         elementCount: 1269
-      - offset: 2423392
+      - offset: 2423696
         elementCount: 1543
-      - offset: 2448080
+      - offset: 2448384
         elementCount: 1244
-      - offset: 2467984
+      - offset: 2468288
         elementCount: 478
-      - offset: 2475632
+      - offset: 2475936
         elementCount: 94
-      - offset: 2477136
+      - offset: 2477440
         elementCount: 21
-      - offset: 2477472
+      - offset: 2477776
         elementCount: 1193
-      - offset: 2496560
+      - offset: 2496864
         elementCount: 1762
-      - offset: 2524752
+      - offset: 2525056
         elementCount: 1787
-      - offset: 2553344
+      - offset: 2553648
         elementCount: 1849
-      - offset: 2582928
+      - offset: 2583232
         elementCount: 385
-      - offset: 2589088
+      - offset: 2589392
         elementCount: 1069
-      - offset: 2606192
+      - offset: 2606496
         elementCount: 25
-      - offset: 2606592
+      - offset: 2606896
         elementCount: 272
-      - offset: 2610944
+      - offset: 2611248
         elementCount: 1066
-      - offset: 2628000
+      - offset: 2628304
         elementCount: 1711
-      - offset: 2655376
+      - offset: 2655680
         elementCount: 1691
-      - offset: 2682432
+      - offset: 2682736
         elementCount: 1701
-      - offset: 2709648
+      - offset: 2709952
         elementCount: 411
-      - offset: 2716224
+      - offset: 2716528
         elementCount: 28
-      - offset: 2716672
+      - offset: 2716976
         elementCount: 89
-      - offset: 2718096
+      - offset: 2718400
         elementCount: 5
-      - offset: 2718176
+      - offset: 2718480
         elementCount: 229
-      - offset: 2721840
+      - offset: 2722144
         elementCount: 6
-      - offset: 2721936
+      - offset: 2722240
         elementCount: 94
-      - offset: 2723440
+      - offset: 2723744
         elementCount: 317
-      - offset: 2728512
+      - offset: 2728816
         elementCount: 1707
-      - offset: 2755824
+      - offset: 2756128
         elementCount: 1728
-      - offset: 2783472
+      - offset: 2783776
         elementCount: 1659
-      - offset: 2810016
+      - offset: 2810320
         elementCount: 1852
-      - offset: 2839648
+      - offset: 2839952
         elementCount: 1870
-      - offset: 2869568
+      - offset: 2869872
         elementCount: 1820
-      - offset: 2898688
+      - offset: 2898992
         elementCount: 1445
-      - offset: 2921808
+      - offset: 2922112
         elementCount: 1832
-      - offset: 2951120
+      - offset: 2951424
         elementCount: 1831
-      - offset: 2980416
+      - offset: 2980720
         elementCount: 1707
-      - offset: 3007728
+      - offset: 3008032
         elementCount: 1693
-      - offset: 3034816
+      - offset: 3035120
         elementCount: 1711
-      - offset: 3062192
+      - offset: 3062496
         elementCount: 398
-      - offset: 3068560
+      - offset: 3068864
         elementCount: 182
-      - offset: 3071472
+      - offset: 3071776
         elementCount: 79
-      - offset: 3072736
+      - offset: 3073040
         elementCount: 161
-      - offset: 3075312
+      - offset: 3075616
         elementCount: 49
-      - offset: 3076096
+      - offset: 3076400
         elementCount: 1253
-      - offset: 3096144
+      - offset: 3096448
         elementCount: 232
-      - offset: 3099856
+      - offset: 3100160
         elementCount: 48
-      - offset: 3100624
+      - offset: 3100928
         elementCount: 126
-      - offset: 3102640
+      - offset: 3102944
         elementCount: 193
-      - offset: 3105728
+      - offset: 3106032
         elementCount: 1514
-      - offset: 3129952
+      - offset: 3130256
         elementCount: 1739
-      - offset: 3157776
+      - offset: 3158080
         elementCount: 1776
-      - offset: 3186192
+      - offset: 3186496
         elementCount: 468
-      - offset: 3193680
+      - offset: 3193984
         elementCount: 1624
-      - offset: 3219664
+      - offset: 3219968
         elementCount: 1787
-      - offset: 3248256
+      - offset: 3248560
         elementCount: 1695
-      - offset: 3275376
+      - offset: 3275680
         elementCount: 348
-      - offset: 3280944
+      - offset: 3281248
         elementCount: 802
-      - offset: 3293776
+      - offset: 3294080
         elementCount: 1819
-      - offset: 3322880
+      - offset: 3323184
         elementCount: 1728
-      - offset: 3350528
+      - offset: 3350832
         elementCount: 1576
-      - offset: 3375744
+      - offset: 3376048
         elementCount: 202
-      - offset: 3378976
+      - offset: 3379280
         elementCount: 194
-      - offset: 3382080
+      - offset: 3382384
         elementCount: 1792
-      - offset: 3410752
+      - offset: 3411056
         elementCount: 1023
-      - offset: 3427120
+      - offset: 3427424
         elementCount: 160
-      - offset: 3429680
+      - offset: 3429984
         elementCount: 1155
-      - offset: 3448160
+      - offset: 3448464
         elementCount: 928
-      - offset: 3463008
+      - offset: 3463312
         elementCount: 1175
-      - offset: 3481808
+      - offset: 3482112
         elementCount: 1549
-      - offset: 3506592
+      - offset: 3506896
         elementCount: 1319
-      - offset: 3527696
+      - offset: 3528000
         elementCount: 364
-      - offset: 3533520
+      - offset: 3533824
         elementCount: 23
-      - offset: 3533888
+      - offset: 3534192
         elementCount: 1002
-      - offset: 3549920
+      - offset: 3550224
         elementCount: 292
-      - offset: 3554592
+      - offset: 3554896
         elementCount: 45
-      - offset: 3555312
+      - offset: 3555616
         elementCount: 295
-      - offset: 3560032
+      - offset: 3560336
         elementCount: 751
-      - offset: 3572048
+      - offset: 3572352
         elementCount: 512
-      - offset: 3580240
+      - offset: 3580544
         elementCount: 303
-      - offset: 3585088
+      - offset: 3585392
         elementCount: 1541
-      - offset: 3609744
+      - offset: 3610048
         elementCount: 1635
-      - offset: 3635904
+      - offset: 3636208
         elementCount: 1281
-      - offset: 3656400
+      - offset: 3656704
         elementCount: 1586
-      - offset: 3681776
+      - offset: 3682080
         elementCount: 1788
-      - offset: 3710384
+      - offset: 3710688
         elementCount: 1611
-      - offset: 3736160
+      - offset: 3736464
         elementCount: 439
-      - offset: 3743184
+      - offset: 3743488
         elementCount: 340
-      - offset: 3748624
+      - offset: 3748928
         elementCount: 944
-      - offset: 3763728
+      - offset: 3764032
         elementCount: 500
-      - offset: 3771728
+      - offset: 3772032
         elementCount: 30
-      - offset: 3772208
+      - offset: 3772512
         elementCount: 929
-      - offset: 3787072
+      - offset: 3787376
         elementCount: 1549
-      - offset: 3811856
+      - offset: 3812160
         elementCount: 1549
-      - offset: 3836640
+      - offset: 3836944
         elementCount: 1549
-      - offset: 3861424
+      - offset: 3861728
         elementCount: 1549
-      - offset: 3886208
+      - offset: 3886512
         elementCount: 1511
-      - offset: 3910384
+      - offset: 3910688
         elementCount: 1026
-      - offset: 3926800
+      - offset: 3927104
         elementCount: 1106
-      - offset: 3944496
+      - offset: 3944800
         elementCount: 1008
-      - offset: 3960624
+      - offset: 3960928
         elementCount: 1146
-      - offset: 3978960
+      - offset: 3979264
         elementCount: 1417
-      - offset: 4001632
+      - offset: 4001936
         elementCount: 1549
-      - offset: 4026416
+      - offset: 4026720
         elementCount: 292
-      - offset: 4031088
+      - offset: 4031392
         elementCount: 203
-      - offset: 4034336
+      - offset: 4034640
         elementCount: 417
-      - offset: 4041008
+      - offset: 4041312
         elementCount: 61
-      - offset: 4041984
+      - offset: 4042288
         elementCount: 750
-      - offset: 4053984
+      - offset: 4054288
         elementCount: 583
-      - offset: 4063312
+      - offset: 4063616
         elementCount: 619
-      - offset: 4073216
+      - offset: 4073520
         elementCount: 463
-      - offset: 4080624
+      - offset: 4080928
         elementCount: 73
-      - offset: 4081792
+      - offset: 4082096
         elementCount: 47
-      - offset: 4082544
+      - offset: 4082848
         elementCount: 203
-      - offset: 4085792
+      - offset: 4086096
         elementCount: 292
-      - offset: 4090464
+      - offset: 4090768
         elementCount: 292
-      - offset: 4095136
+      - offset: 4095440
         elementCount: 292
-      - offset: 4099808
+      - offset: 4100112
         elementCount: 292
-      - offset: 4104480
+      - offset: 4104784
         elementCount: 292
-      - offset: 4109152
+      - offset: 4109456
         elementCount: 292
-      - offset: 4113824
+      - offset: 4114128
         elementCount: 292
-      - offset: 4118496
+      - offset: 4118800
         elementCount: 292
-      - offset: 4123168
+      - offset: 4123472
         elementCount: 292
-      - offset: 4127840
+      - offset: 4128144
         elementCount: 292
-      - offset: 4132512
+      - offset: 4132816
         elementCount: 292
-      - offset: 4137184
+      - offset: 4137488
         elementCount: 56
     m_Asset: {fileID: 4900000, guid: c6047668d692544b6b95e92ed801cb03, type: 3}
   cellSupportDataAsset:
