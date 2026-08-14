@@ -1,122 +1,210 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody))]
-public class PlayerController : MonoBehaviour
+[RequireComponent(typeof(CharacterController))]
+public sealed class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Transform cameraTarget;
-    [SerializeField] private float mouseSensitivity = 80f;
+    [Header("References")]
+    [SerializeField] private Transform cameraPivot;
+    [SerializeField] private InputActionReference moveAction;
+    [SerializeField] private InputActionReference lookAction;
+    [SerializeField] private InputActionReference sprintAction;
 
-    [SerializeField] private float moveSpeed = 4f;
-    [SerializeField] private float rotationSpeed = 10f;
-    
-    [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private float groundCheckDistance = 1.1f;
+    [Header("Movement")]
+    [SerializeField, Min(0f)] private float walkSpeed = 4f;
+    [SerializeField, Min(0f)] private float sprintSpeed = 6f;
+    [SerializeField, Min(0f)] private float movementSharpness = 14f;
+    [SerializeField] private float gravity = -25f;
+    [SerializeField] private float groundedForce = -2f;
 
-    private Rigidbody _rb;
-    private Vector3 _movement;
-    private float _cameraYaw;
-    private bool _isGrounded;
+    [Header("First-Person Look")]
+    [SerializeField, Min(0f)] private float mouseSensitivity = 0.08f;
+    [SerializeField, Min(0f)] private float gamepadLookSpeed = 140f;
+    [SerializeField, Range(1f, 89f)] private float maximumLookAngle = 85f;
 
-    private void Start()
+    [Header("Cursor")]
+    [SerializeField] private bool lockCursorOnEnable = true;
+
+    private CharacterController _characterController;
+    private Vector3 _horizontalVelocity;
+    private float _verticalVelocity;
+    private float _cameraPitch;
+    private bool _inputEnabled = true;
+
+    private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
+        _characterController = GetComponent<CharacterController>();
 
-        // Keeps the capsule from falling over when it hits walls/stairs.
-        _rb.freezeRotation = true;
-
-        // Makes mouse look work properly in Game view.
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        if (cameraTarget != null)
+        if (cameraPivot != null)
         {
-            _cameraYaw = cameraTarget.eulerAngles.y;
+            _cameraPitch = NormalizeAngle(cameraPivot.localEulerAngles.x);
+            _cameraPitch = Mathf.Clamp(
+                _cameraPitch,
+                -maximumLookAngle,
+                maximumLookAngle);
         }
+    }
+
+    private void OnEnable()
+    {
+        EnableAction(moveAction);
+        EnableAction(lookAction);
+        EnableAction(sprintAction);
+
+        if (lockCursorOnEnable)
+        {
+            LockCursor();
+        }
+    }
+
+    private void OnDisable()
+    {
+        DisableAction(moveAction);
+        DisableAction(lookAction);
+        DisableAction(sprintAction);
     }
 
     private void Update()
     {
-        HandleCameraRotation();
-        HandleMovementInput();
-        HandlePlayerRotation();
-        CheckGrounded();
-        HandleJump();
-        HandleCursorUnlock();
+        HandleCursor();
+
+        if (_inputEnabled && Cursor.lockState == CursorLockMode.Locked)
+        {
+            HandleLook();
+        }
+
+        HandleMovement();
     }
 
-    private void FixedUpdate()
+    private void HandleLook()
     {
-        Vector3 newPosition = _rb.position + _movement * (moveSpeed * Time.fixedDeltaTime);
-        _rb.MovePosition(newPosition);
-    }
-
-    private void HandleCameraRotation()
-    {
-        if (cameraTarget == null)
+        if (cameraPivot == null || lookAction == null || lookAction.action == null)
         {
             return;
         }
 
-        float mouseX = Input.GetAxis("Mouse X");
-        _cameraYaw += mouseX * mouseSensitivity * Time.deltaTime;
+        Vector2 lookInput = lookAction.action.ReadValue<Vector2>();
+        bool usingMouse = lookAction.action.activeControl?.device is Mouse;
 
-        cameraTarget.rotation = Quaternion.Euler(0f, _cameraYaw, 0f);
+        float lookMultiplier = usingMouse
+            ? mouseSensitivity
+            : gamepadLookSpeed * Time.deltaTime;
+
+        float yaw = lookInput.x * lookMultiplier;
+        float pitch = lookInput.y * lookMultiplier;
+
+        transform.Rotate(Vector3.up, yaw, Space.Self);
+
+        _cameraPitch = Mathf.Clamp(
+            _cameraPitch - pitch,
+            -maximumLookAngle,
+            maximumLookAngle);
+
+        cameraPivot.localRotation = Quaternion.Euler(_cameraPitch, 0f, 0f);
     }
 
-    private void HandleMovementInput()
+    private void HandleMovement()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveZ = Input.GetAxisRaw("Vertical");
+        Vector2 moveInput = Vector2.zero;
 
-        if (cameraTarget == null)
+        if (_inputEnabled && moveAction != null && moveAction.action != null)
         {
-            _movement = new Vector3(moveX, 0f, moveZ).normalized;
+            moveInput = Vector2.ClampMagnitude(
+                moveAction.action.ReadValue<Vector2>(),
+                1f);
+        }
+
+        Vector3 desiredDirection =
+            transform.right * moveInput.x +
+            transform.forward * moveInput.y;
+
+        float targetSpeed = IsSprinting() ? sprintSpeed : walkSpeed;
+        Vector3 desiredVelocity = desiredDirection * targetSpeed;
+
+        float smoothing = 1f - Mathf.Exp(-movementSharpness * Time.deltaTime);
+        _horizontalVelocity = Vector3.Lerp(
+            _horizontalVelocity,
+            desiredVelocity,
+            smoothing);
+
+        if (_characterController.isGrounded && _verticalVelocity < 0f)
+        {
+            _verticalVelocity = groundedForce;
+        }
+        else
+        {
+            _verticalVelocity += gravity * Time.deltaTime;
+        }
+
+        Vector3 finalVelocity = _horizontalVelocity;
+        finalVelocity.y = _verticalVelocity;
+
+        _characterController.Move(finalVelocity * Time.deltaTime);
+    }
+
+    private bool IsSprinting()
+    {
+        return _inputEnabled &&
+               sprintAction != null &&
+               sprintAction.action != null &&
+               sprintAction.action.IsPressed();
+    }
+
+    private void HandleCursor()
+    {
+        if (Keyboard.current != null &&
+            Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            UnlockCursor();
+        }
+
+        if (_inputEnabled &&
+            Cursor.lockState != CursorLockMode.Locked &&
+            Mouse.current != null &&
+            Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            LockCursor();
+        }
+    }
+
+    public void SetInputEnabled(bool enabled)
+    {
+        _inputEnabled = enabled;
+
+        if (!enabled)
+        {
+            _horizontalVelocity = Vector3.zero;
+            UnlockCursor();
             return;
         }
 
-        Vector3 cameraForward = cameraTarget.forward;
-        Vector3 cameraRight = cameraTarget.right;
-
-        cameraForward.y = 0f;
-        cameraRight.y = 0f;
-
-        cameraForward.Normalize();
-        cameraRight.Normalize();
-
-        _movement = (cameraRight * moveX + cameraForward * moveZ).normalized;
+        LockCursor();
     }
 
-    private void HandlePlayerRotation()
+    public void LockCursor()
     {
-        if (_movement.sqrMagnitude <= 0.01f)
-        {
-            return;
-        }
-
-        Quaternion targetRotation = Quaternion.LookRotation(_movement);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
-    private void CheckGrounded()
+    public void UnlockCursor()
     {
-        _isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance);
-        Debug.DrawRay(transform.position, Vector3.down * groundCheckDistance, Color.red);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
-    private void HandleJump()
+    private static void EnableAction(InputActionReference actionReference)
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
-        {
-            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
+        actionReference?.action?.Enable();
     }
 
-    private void HandleCursorUnlock()
+    private static void DisableAction(InputActionReference actionReference)
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        actionReference?.action?.Disable();
+    }
+
+    private static float NormalizeAngle(float angle)
+    {
+        return angle > 180f ? angle - 360f : angle;
     }
 }
