@@ -30,6 +30,9 @@ public sealed class PlayerController : MonoBehaviour
     private float _verticalVelocity;
     private float _cameraPitch;
     private bool _inputEnabled = true;
+    
+    //player can interact with things using the interface
+    private IInteractable _interactable;
 
     private void Awake()
     {
