@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Project/01_Scenes/Stronghold_Redo.unity
+    guid: ff8df28b477874fdb8950da551f06cb3
+  - enabled: 1
     path: Assets/_Project/01_Scenes/BattleScene.unity
     guid: 086272b1abfb64e7caa16dce83e6383c
   m_configObjects:
