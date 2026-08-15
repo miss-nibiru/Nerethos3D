@@ -22,6 +22,9 @@ public sealed class PlayerController : MonoBehaviour
     [SerializeField, Min(0f)] private float gamepadLookSpeed = 140f;
     [SerializeField, Range(1f, 89f)] private float maximumLookAngle = 85f;
 
+    [SerializeField] private InputActionReference interactAction;
+    [SerializeField] private float interactionDistance = 3f;
+    
     [Header("Cursor")]
     [SerializeField] private bool lockCursorOnEnable = true;
 
@@ -30,9 +33,6 @@ public sealed class PlayerController : MonoBehaviour
     private float _verticalVelocity;
     private float _cameraPitch;
     private bool _inputEnabled = true;
-    
-    //player can interact with things using the interface
-    private IInteractable _interactable;
 
     private void Awake()
     {
@@ -53,6 +53,7 @@ public sealed class PlayerController : MonoBehaviour
         EnableAction(moveAction);
         EnableAction(lookAction);
         EnableAction(sprintAction);
+        EnableAction(interactAction);
 
         if (lockCursorOnEnable)
         {
@@ -65,6 +66,7 @@ public sealed class PlayerController : MonoBehaviour
         DisableAction(moveAction);
         DisableAction(lookAction);
         DisableAction(sprintAction);
+        DisableAction(interactAction);
     }
 
     private void Update()
@@ -77,6 +79,7 @@ public sealed class PlayerController : MonoBehaviour
         }
 
         HandleMovement();
+        HandleInteraction();
     }
 
     private void HandleLook()
@@ -143,6 +146,31 @@ public sealed class PlayerController : MonoBehaviour
         finalVelocity.y = _verticalVelocity;
 
         _characterController.Move(finalVelocity * Time.deltaTime);
+    }
+    
+    private void HandleInteraction()
+    {
+        if (!_inputEnabled ||
+            interactAction == null ||
+            !interactAction.action.WasPressedThisFrame())
+        {
+            return;
+        }
+
+        if (Physics.Raycast(
+                cameraPivot.position,
+                cameraPivot.forward,
+                out RaycastHit hit,
+                interactionDistance))
+        {
+            IInteractable interactable =
+                hit.collider.GetComponentInParent<IInteractable>();
+
+            if (interactable != null && interactable.CanInteract())
+            {
+                interactable.Interact();
+            }
+        }
     }
 
     private bool IsSprinting()
